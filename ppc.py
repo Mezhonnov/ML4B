@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import json
-import jsonlines
+import json_lines
 import glob
 
 #Present your team
@@ -28,7 +28,7 @@ with st.expander("About Project:"):
     st.text('Bla Bla Bla')
 #show one element of your dataset
 with st.expander('Example of dataset'):
-    with jsonlines.open('data/AfDProtschka.jl') as jl:
+    with json_lines.open('data/AfDProtschka.jl') as jl:
         for item in jl:
             for tweet in item['response']['data']:
                 st.write(tweet)
