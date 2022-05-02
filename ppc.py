@@ -4,7 +4,6 @@ import numpy as np
 import json
 import jsonlines
 import glob
-import tarfile
 
 #Present your team
 st.title('Political Party Classification')
