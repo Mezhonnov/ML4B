@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import json
 import json_lines
-import glob
 
 #Present your team
 st.title('Political Party Classification')
