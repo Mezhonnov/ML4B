@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import json
+import time
 
 #Present your team
 st.title('Political Party Classification')
@@ -23,13 +24,17 @@ with col3:
 
 #present your project
 with st.expander("About Project:"):
-    st.text('Bla Bla Bla')
+    st.text('  The goal of our project is to classify Tweets by the political party\n of the author')
 #show one element of your dataset
+
+base="dark"
+primaryColor="purple"
 with st.expander('Example of dataset'):
-    data = json.load(open('data.json'))
-    st.text(data)
+    st.text('**Tweet of Anja Schulz:** "Das Spiel macht wirklich Freude. Ein Traeumchen"')
+    if st.button("Party of tweeting Member of Parliament is..."):
+        time.sleep(3)
+        data = json.load(open('data.json'))
+        st.markdown(data['account_data']['Partei'])
 
-
-#insert one interactive element
-
-#with st.expander('Interactive element'):
+if st.button("What is a classificator?"):
+    st.image("https://miro.medium.com/max/1400/1*R6Rbcks-pGO0SkhCINrP0g.png")
