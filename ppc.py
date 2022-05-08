@@ -26,7 +26,7 @@ with st.expander("About Project:"):
 #show one element of your dataset
 with st.expander('Example of dataset'):
     st.write('Example')
-    with json_lines.open('data/johannesvogel.jl') as jl:
+    with json_lines.open('data/josip_juratovic.jl') as jl:
         for item in jl:
             for tweet in item['response']['data']:
                 st.json(tweet)
