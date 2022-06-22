@@ -98,12 +98,12 @@ prep_text = [re_umlaut(remove_numbers(remove_punkt(remove_rt(clean_tweet(umlaut(
 df['tweet_prep'] = prep_text
 df.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
 ###remove NaN rows from Dataset
-df = pd.read_csv('test.csv', encoding = 'unicode_escape')
+df = pd.read_csv('test.csv', encoding = 'unicode_escape', on_bad_lines='skip')
 df1 = df.dropna(thresh=3)
 df1.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
 
 ### datei einlesen
-df = pd.read_csv('test.csv', encoding = 'unicode_escape')
+df = pd.read_csv('test.csv', encoding = 'unicode_escape', on_bad_lines='skip')
 with st.expander('Example of dataset'):
     st.text('Our dataset is 8GB of JL-Data...')
     st.image("https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535", caption = "My Notebook with 4GB RAM")
