@@ -62,7 +62,7 @@ with col3:
 #                             break
 #     df = pd.DataFrame(party, columns = ['party', 'tweet'])
 
-df = pd.read_csv('test.csv')
+df = pd.read_csv('test.csv', encoding='utf-8')
 ###########define some functions
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION)
 def umlaut(text):
