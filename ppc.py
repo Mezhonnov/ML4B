@@ -62,7 +62,8 @@ with col3:
 #                             break
 #     df = pd.DataFrame(party, columns = ['party', 'tweet'])
 
-df = pd.read_csv('test.csv', encoding='utf-8')
+df = pd.read_csv('test.csv', encoding = 'unicode_escape')
+df.drop(columns=['tweet_prep'])
 ###########define some functions
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION)
 def umlaut(text):
@@ -97,12 +98,12 @@ prep_text = [re_umlaut(remove_numbers(remove_punkt(remove_rt(clean_tweet(umlaut(
 df['tweet_prep'] = prep_text
 df.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
 ###remove NaN rows from Dataset
-df = pd.read_csv('test.csv')
+df = pd.read_csv('test.csv', encoding = 'unicode_escape')
 df1 = df.dropna(thresh=3)
 df1.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
 
 ### datei einlesen
-df = pd.read_csv('test.csv')
+df = pd.read_csv('test.csv', encoding = 'unicode_escape')
 with st.expander('Example of dataset'):
     st.text('Our dataset is 8GB of JL-Data...')
     st.image("https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535", caption = "My Notebook with 4GB RAM")
