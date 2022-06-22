@@ -185,7 +185,7 @@ with st.expander("Prediction"):
         sgd_pred_res = sgd.predict(x_test)
         
         if st.button("Predict"):
-            sgd_pred = nb.predict([new_tweet])
+            sgd_pred = sgd.predict([new_tweet])
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
@@ -202,7 +202,7 @@ with st.expander("Prediction"):
         lg_pred_res = logreg.predict(x_test)
         
         if st.button("Predict"):
-            sgd_pred = nb.predict([new_tweet])
+            sgd_pred = logreg.predict([new_tweet])
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
