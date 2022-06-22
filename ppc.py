@@ -62,7 +62,7 @@ with col3:
 #                             break
 #     df = pd.DataFrame(party, columns = ['party', 'tweet'])
 
-df = pd.read_csv('test.csv', encoding = 'unicode_escape', on_bad_lines='skip')
+df = pd.read_csv('test.csv', on_bad_lines='skip')
 df.drop(columns=['tweet_prep'])
 ###########define some functions
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION)
