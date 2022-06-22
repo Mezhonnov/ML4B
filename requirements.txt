@@ -34,7 +34,6 @@ docker==5.0.3
 entrypoints==0.4
 executing==0.8.3
 fastjsonschema==2.15.3
-filelock @ file:///opt/conda/conda-bld/filelock_1647002191454/work
 Flask==2.1.2
 fonttools==4.33.3
 funcy==1.17
