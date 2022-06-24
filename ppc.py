@@ -154,7 +154,7 @@ with st.expander("Prediction"):
     if st.button("Prepare"):
         st.write(new_tweet)
     
-    option = st.sidebar.selectbox('Navigation', 
+    option = st.selectbox('Navigation', 
         ["Naive Bayes",
          "Linear Support Vector Machine", 
          "Logistic Regression"])
@@ -172,8 +172,8 @@ with st.expander("Prediction"):
             st.write(nb_pred)
         
         if st.button("Evaluation"):
-            print('accuracy %s' % accuracy_score(nb_pred_res, y_test))
-            print(classification_report(y_test, nb_pred_res, target_names=my_tags))
+            st.write('accuracy %s' % accuracy_score(nb_pred_res, y_test))
+            st.write(classification_report(y_test, nb_pred_res, target_names=my_tags))
     
     elif option == 'Linear Support Vector Machine':
 
@@ -189,8 +189,8 @@ with st.expander("Prediction"):
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
-            print('accuracy %s' % accuracy_score(sgd_pred_res, y_test))
-            print(classification_report(y_test, sgd_pred_res, target_names=my_tags))
+            st.write('accuracy %s' % accuracy_score(sgd_pred_res, y_test))
+            st.write(classification_report(y_test, sgd_pred_res, target_names=my_tags))
                   
     elif option == 'Logistic Regression':
         
@@ -206,8 +206,8 @@ with st.expander("Prediction"):
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
-            print('accuracy %s' % accuracy_score(lg_pred_res, y_test))
-            print(classification_report(y_test, lg_pred_res, target_names=my_tags))
+            st.write('accuracy %s' % accuracy_score(lg_pred_res, y_test))
+            st.write(classification_report(y_test, lg_pred_res, target_names=my_tags))
 
 
 
