@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import pandas_profiling
-import seaborn as sns
 import json
 import time
 import glob
@@ -94,20 +93,22 @@ def re_umlaut(text):
     return text
  
 ###data prepare & save df in csv
-#prep_text = [re_umlaut(remove_numbers(remove_punkt(remove_rt(clean_tweet(umlaut(text.lower())))))) for text in df['tweet']]
-#df['tweet_prep'] = prep_text
-#df.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
-###remove NaN rows from Dataset
-#df = pd.read_csv('test.csv', encoding = 'unicode_escape', on_bad_lines='skip')
-#df1 = df.dropna(thresh=3)
-#df1.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
+# prep_text = [re_umlaut(remove_numbers(remove_punkt(remove_rt(clean_tweet(umlaut(text.lower())))))) for text in df['tweet']]
+# df['tweet_prep'] = prep_text
+# df.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
+# ###remove NaN rows from Dataset
+# df = pd.read_csv('test.csv')
+# df1 = df.dropna(thresh=3)
+# df1.to_csv('test.csv', index=False, columns = ['party', 'tweet', 'tweet_prep'])
 
 ### datei einlesen
-#df = pd.read_csv('test.csv', encoding = 'unicode_escape', on_bad_lines='skip')
+#df = pd.read_csv('test.csv')
+import nltk
+nltk.download('stopwords')
 with st.expander('Example of dataset'):
     st.text('Our dataset is 8GB of JL-Data...')
     st.image("https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535", caption = "My Notebook with 4GB RAM")
-    if st.checkbox("Show me example as JSON"):
+    if st.checkbox("Show me example"):
         data = json.load(open('data.json'))
         st.write(data)   
 
@@ -120,41 +121,52 @@ with st.expander('Data Preparation'):
     st.table(table)
     if st.button("Show me result"):
         st.image("preparation.jpg")
-    if st.checkbox("Word Cloud"):
-        ##stop_words
-        import nltk
-        nltk.download('stopwords')
-        stop_words = stopwords.words('german')    
-        df['tweet_prep'] = df['tweet_prep'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
-
-        ###Word Cloud with stop_words
-
+    opt = st.selectbox("Word Cloud", (" ","Without Stopwords","With Stopwords"))
+    if opt == " ":
+        st.write(" ")
+    elif opt == "Without Stopwords":
         text = ''
         for tweet in df['tweet_prep']:
             text += ''.join(tweet.split(','))
-        wordcloud = WordCloud().generate(text)
-        fig = plt.figure( figsize=(20,20))
+        wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
+        fig = plt.figure(figsize=(20,20))
         plt.imshow(wordcloud, interpolation='bilinear')
         plt.axis("off")
         st.pyplot(fig)
+        
+    elif opt == "With Stopwords":
+        
+        stop_words = stopwords.words('german')    
+        df['tweet_prep'] = df['tweet_prep'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
+        text = ''
+        for tweet in df['tweet_prep']:
+            text += ''.join(tweet.split(','))
+        wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
+        fig = plt.figure(figsize=(20,20))
+        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.axis("off")
+        st.pyplot(fig)
+        
     if st.checkbox("Count of Tweets"):
         fig1 = plt.figure(figsize=(8,6))
         df.groupby('party').tweet_prep.count().plot.bar(ylim=0)
         st.pyplot(fig1)
     
 
-x = df['tweet_prep']
-y = df['party']
-my_tags = df['party'].unique()
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=1028)
-
 with st.expander("Prediction"):
+    stop_words = stopwords.words('german')    
+    df['tweet_prep'] = df['tweet_prep'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
+    x = df['tweet_prep']
+    y = df['party']
+    my_tags = df['party'].unique()
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
+    
     new_tweet = st.text_area("Input a new Tweet for prediction")
     new_tweet = re_umlaut(remove_numbers(remove_punkt(remove_rt(clean_tweet(umlaut(new_tweet.lower()))))))
     if st.button("Prepare"):
         st.write(new_tweet)
     
-    option = st.selectbox('Navigation', 
+    option = st.selectbox('ML Model', 
         ["Naive Bayes",
          "Linear Support Vector Machine", 
          "Logistic Regression"])
@@ -173,7 +185,8 @@ with st.expander("Prediction"):
         
         if st.button("Evaluation"):
             st.write('accuracy %s' % accuracy_score(nb_pred_res, y_test))
-            st.write(classification_report(y_test, nb_pred_res, target_names=my_tags))
+            st.text('Model Report:\n ' + classification_report(y_test, nb_pred_res, target_names=my_tags))
+            
     
     elif option == 'Linear Support Vector Machine':
 
@@ -190,7 +203,7 @@ with st.expander("Prediction"):
             
         if st.button("Evaluation"):
             st.write('accuracy %s' % accuracy_score(sgd_pred_res, y_test))
-            st.write(classification_report(y_test, sgd_pred_res, target_names=my_tags))
+            st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
                   
     elif option == 'Logistic Regression':
         
@@ -207,7 +220,8 @@ with st.expander("Prediction"):
             
         if st.button("Evaluation"):
             st.write('accuracy %s' % accuracy_score(lg_pred_res, y_test))
-            st.write(classification_report(y_test, lg_pred_res, target_names=my_tags))
+            st.text('Model Report:\n ' + classification_report(y_test, lg_pred_res, target_names=my_tags))
+    
 
 
 
