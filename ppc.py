@@ -181,7 +181,7 @@ with st.expander("Prediction"):
         
         if st.button("Predict"):
             nb_pred = nb.predict([new_tweet])
-            st.write(nb_pred)
+            st.text(nb_pred)
         
         if st.button("Evaluation"):
             st.write('accuracy %s' % accuracy_score(nb_pred_res, y_test))
@@ -199,7 +199,7 @@ with st.expander("Prediction"):
         
         if st.button("Predict"):
             sgd_pred = sgd.predict([new_tweet])
-            st.write(sgd_pred)
+            st.text(sgd_pred)
             
         if st.button("Evaluation"):
             st.write('accuracy %s' % accuracy_score(sgd_pred_res, y_test))
@@ -216,7 +216,7 @@ with st.expander("Prediction"):
         
         if st.button("Predict"):
             sgd_pred = logreg.predict([new_tweet])
-            st.write(sgd_pred)
+            st.text(sgd_pred)
             
         if st.button("Evaluation"):
             st.write('accuracy %s' % accuracy_score(lg_pred_res, y_test))
