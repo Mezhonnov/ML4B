@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import pandas_profiling
 import json
-import time
 import glob
 import string
 import json_lines
@@ -30,7 +29,8 @@ from sklearn import metrics
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-#from sklearn.naive_bayes import MultinomialN
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import MultinomialN
 
 st.title('Political Party Classification')
 #present your project
@@ -62,7 +62,6 @@ with col3:
 #     df = pd.DataFrame(party, columns = ['party', 'tweet'])
 
 df = pd.read_csv('test.csv', on_bad_lines='skip')
-df.drop(columns=['tweet_prep'])
 ###########define some functions
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION)
 def umlaut(text):
@@ -88,7 +87,7 @@ def remove_numbers(text):
 def re_umlaut(text):
     text = text.replace('aeqwe', 'ä')
     text = text.replace('oeqwe', 'ö')
-    text = text.replace('ueqwe', 'ü')
+    text = text.replace('ueqwe', 'ü') 
     text = text.replace('ssqwe', 'ß')
     return text
  
@@ -113,7 +112,7 @@ with st.expander('Example of dataset'):
         st.write(data)   
 
 with st.expander('Data Preparation'):
-    st.text("Before Analyse to start we need to prepare our dataframe")
+    st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
     d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt","remove_numbers", "re_umlaut"],
                          'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es kostet 400000 Euro", "Es waere gut.."],
                          'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es kostet  Euro", "Es wäre gut.."]}
@@ -155,73 +154,62 @@ with st.expander('Data Preparation'):
 
 with st.expander("Prediction"):
     stop_words = stopwords.words('german')    
-    df['tweet_prep'] = df['tweet_prep'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
     x = df['tweet_prep']
     y = df['party']
+    vectorizer = TfidfVectorizer (max_features=3000, min_df=5, max_df=0.7)
+    x = vectorizer.fit_transform(x).toarray()
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.15, random_state=42)
     my_tags = df['party'].unique()
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
     
     new_tweet = st.text_area("Input a new Tweet for prediction")
     new_tweet = re_umlaut(remove_numbers(remove_punkt(remove_rt(clean_tweet(umlaut(new_tweet.lower()))))))
+    
     if st.button("Prepare"):
         st.write(new_tweet)
     
     option = st.selectbox('ML Model', 
         ["Naive Bayes",
          "Linear Support Vector Machine", 
-         "Logistic Regression"])
+         "Logistic Regression","Test"])
     
     if option == 'Naive Bayes':
-        nb = Pipeline([('vect', CountVectorizer()),
-                       ('tfidf', TfidfTransformer()),
-                       ('clf', MultinomialNB()),
-                      ])
-        nb.fit(x_train, y_train)
+        nb = MultinomialNB()
+        nb.fit(x_train,y_train)
         nb_pred_res = nb.predict(x_test)
-        
         if st.button("Predict"):
-            nb_pred = nb.predict([new_tweet])
-            st.text(nb_pred)
+            nb_pred = nb.predict(vectorizer.transform([new_tweet]))
+            st.write(nb_pred)
         
         if st.button("Evaluation"):
-            st.write('accuracy %s' % accuracy_score(nb_pred_res, y_test))
+            #st.write('Accuracy %s' % accuracy_score(y_test, nb_pred_res))
             st.text('Model Report:\n ' + classification_report(y_test, nb_pred_res, target_names=my_tags))
             
     
     elif option == 'Linear Support Vector Machine':
-
-        sgd = Pipeline([('vect', CountVectorizer()),
-                        ('tfidf', TfidfTransformer()),
-                        ('clf', SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, random_state=12, max_iter=5, tol=None)),
-                       ])
+        sgd = SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, random_state=12, max_iter=5, tol=None)
         sgd.fit(x_train, y_train)
         sgd_pred_res = sgd.predict(x_test)
         
         if st.button("Predict"):
             sgd_pred = sgd.predict([new_tweet])
-            st.text(sgd_pred)
+            st.write(sgd_pred)
             
         if st.button("Evaluation"):
-            st.write('accuracy %s' % accuracy_score(sgd_pred_res, y_test))
+            #st.write('accuracy %s' % accuracy_score(y_test, sgd_pred_res))
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
                   
     elif option == 'Logistic Regression':
-        
-        logreg = Pipeline([('vect', CountVectorizer()),
-                        ('tfidf', TfidfTransformer()),
-                        ('clf', LogisticRegression(n_jobs=1, C=1e5)),
-                          ])
+        logreg = LogisticRegression(verbose=1, solver='liblinear',random_state=0, C=5, penalty='l2',max_iter=1000)
         logreg.fit(x_train, y_train)
         lg_pred_res = logreg.predict(x_test)
         
         if st.button("Predict"):
             sgd_pred = logreg.predict([new_tweet])
-            st.text(sgd_pred)
+            st.write(sgd_pred)
             
         if st.button("Evaluation"):
-            st.write('accuracy %s' % accuracy_score(lg_pred_res, y_test))
+            #st.write('accuracy %s' % accuracy_score(y_test, lg_pred_res))
             st.text('Model Report:\n ' + classification_report(y_test, lg_pred_res, target_names=my_tags))
-    
-
-
+        
+        
 
