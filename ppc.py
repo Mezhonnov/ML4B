@@ -30,7 +30,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import MultinomialN
+from sklearn.naive_bayes import MultinomialNB
 
 st.title('Political Party Classification')
 #present your project
