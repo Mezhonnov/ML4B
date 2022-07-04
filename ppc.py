@@ -112,7 +112,8 @@ with st.expander('Example of dataset'):
         st.write(data)   
 
 with st.expander('Data Preparation'):
-    st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
+    st.text("Before Analyse to start we need to prepare our dataframe.")
+    st.text("To do this, we use several functions:")
     d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt","remove_numbers", "re_umlaut"],
                          'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es kostet 400000 Euro", "Es waere gut.."],
                          'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es kostet  Euro", "Es wäre gut.."]}
