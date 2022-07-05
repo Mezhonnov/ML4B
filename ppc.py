@@ -32,7 +32,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import MultinomialNB
 
-st.set_page_config(page_icon="🕊️", page_title="German Twitter Analysis")
 
 st.title('Political Party Classification')
 #present your project
