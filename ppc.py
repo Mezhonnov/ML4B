@@ -159,8 +159,6 @@ with st.expander('Data Preparation'):
                          'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
     table = pd.DataFrame(data=d)
     st.table(table)
-    if st.button("Show me result"):
-        st.image("preparation.jpg")
     opt = st.selectbox("Word Cloud", (" ","Without Stopwords","With Stopwords"))
     if opt == " ":
         st.write(" ")
