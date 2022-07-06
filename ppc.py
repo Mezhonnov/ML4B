@@ -223,7 +223,7 @@ with st.expander("Prediction"):
             st.write(nb_pred)
         
         if st.button("Evaluation"):
-            st.write('Accuracy %s' % accuracy_score(y_test, nb_pred_res))
+            #st.write('Accuracy %s' % accuracy_score(y_test, nb_pred_res))
             st.text('Model Report:\n ' + classification_report(y_test, nb_pred_res, target_names=my_tags))
             
     
@@ -237,7 +237,7 @@ with st.expander("Prediction"):
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
-            st.write('accuracy %s' % accuracy_score(y_test, sgd_pred_res))
+            #st.write('accuracy %s' % accuracy_score(y_test, sgd_pred_res))
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
                   
     elif option == 'Logistic Regression':
@@ -250,6 +250,6 @@ with st.expander("Prediction"):
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
-            st.write('accuracy %s' % accuracy_score(y_test, lg_pred_res))
+            #st.write('accuracy %s' % accuracy_score(y_test, lg_pred_res))
             st.text('Model Report:\n ' + classification_report(y_test, lg_pred_res, target_names=my_tags))
 
