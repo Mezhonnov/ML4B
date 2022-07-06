@@ -194,8 +194,8 @@ with st.expander('Data Preparation'):
 df1 = pd.read_csv('result.csv')
 #df1.fillna('')
 with st.expander("Prediction"):
-    stop_words = stopwords.words('german')    
-    df1['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))  
+    #stop_words = stopwords.words('german')    
+    #df1['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))  
     X = df1['tweet']
     y = df1['party']
     vectorizer = TfidfVectorizer(max_features=3000, min_df=8, max_df=0.8)
