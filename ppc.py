@@ -238,7 +238,7 @@ if selected=="Process":
         st.text("blub")    
 
 
-with st.expander("Prediction"):
+if selected=="Live Demo":  
     #stop_words = stopwords.words('german')    
     #df1['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))  
     X = df['tweet']
