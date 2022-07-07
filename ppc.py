@@ -362,11 +362,12 @@ if selected=="Live Demo":
     
     elif option == 'Linear Support Vector Machine':
         sgd = SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, random_state=12, max_iter=5, tol=None)
+
         sgd.fit(X_train, y_train)
         sgd_pred_res = sgd.predict(X_test)
         
         if st.button("Predict"):
-            sgd_pred = sgd.predict(vectorizer.transform[new_tweet])
+            sgd_pred = sgd.predict([new_tweet])
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
@@ -391,7 +392,6 @@ if selected=="Live Demo":
         if st.button("Predict"):
             sgd_pred = logreg.predict([new_tweet])
             st.write(sgd_pred)
-            st.balloons()
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
