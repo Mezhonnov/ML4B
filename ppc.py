@@ -217,14 +217,17 @@ if selected=="Process":
         st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Furthermore we needed to understand how a JSON file works and which particular information was included</p>", unsafe_allow_html=True) 
         st.write("Included important informations")
-        st.write("- http status")
+        """st.write("- http status")
         st.write("- account name")
         st.write("- account data")
         st.write("  - name")
         st.write("  - party")
         st.write("  - id")
         st.write("  - sc")
-        st.write("- response")
+        st.write("- response")"""
+        st.markdown("<ul style='text-align:center'><li>http status</li>\
+        <li>account data (e.g. account name and party)</li><li>response</li></ol>", unsafe_allow_html=True)
+
         st.write("In summary we got information about the content of the tweet, as well as the authors name and party")
         
         if st.checkbox("Count of Tweets"):
@@ -233,13 +236,13 @@ if selected=="Process":
     with st.expander("Data Preparation"):
         st.markdown("<br><h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Before analysis starts we need to prepare our dataframe. To do this, we used several functions. Here are some examples:</p>", unsafe_allow_html=True) 
-        st.write("- convert source data into csv")
+        """st.write("- convert source data into csv")
         st.write("- reduce the amount of tweets")
         st.write("- transform ä,ö,ü")
         st.write("- remove unimportant information like 'time'")
         st.write("- remove @-mentions")
         st.write("- remove punctuation")
-        st.write("- remove retweet information") 
+        st.write("- remove retweet information") """
         st.markdown("<ul style='text-align:center'><li>convert source data into csv</li>\
         <li>reduce the amount of tweets</li><li>transform ä,ö,ü</li><li>remove unimportant information like 'time'</li><li>remove @-mentions</li>\
         <li>remove punctuation</li><li>remove retweet information</li></ol>", unsafe_allow_html=True)
