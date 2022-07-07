@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import pandas_profiling
-import json
+import json as json
 import glob
 import json_lines
 from tqdm.notebook import tqdm
