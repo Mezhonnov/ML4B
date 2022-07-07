@@ -72,7 +72,7 @@ def re_umlaut(text):
 if selected=="Home":
     st.markdown("<h1 style='text-align: center'>Political Party Classification</h1>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>Our Goal</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center'>The goal of our project is to classify Tweets of german politicans by the political party of the author. However, we don't just want to research the politicians and cathegorize them manually, we want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center'>The goal of our project is to classify tweets of german politicans by the political party of the author. However, we don't just want to research the politicians and categorize them manually, we want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>Our Team</h2>", unsafe_allow_html=True)
 
     #present your team
@@ -198,10 +198,10 @@ if selected=="Process":
 
     with st.expander("Business Understanding"):
         st.markdown("<p>Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own.\
-        There are almost no limitis to what you can include in your tweet. You can use text, numbers and emojicons. \
-        Despite the almost unlimited possibilites to write a tweet one might use same patterns - like special emojis or syntax - over and over again. \
-        Furthermore members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \
-        The interesting part is to find exactly these patterns. Some are quite obvious and others are rather inconspicuous. \
+        There are almost no limits to what you can include in your tweet. You can use text, numbers and emojicons. \
+        Despite the almost unlimited possibilites to write a tweet, one might use same patterns - like special emojis or syntax - over and over again. \
+        Furthermore, members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \
+        The interesting part is to find those exact patterns. Some are quite obvious and others are rather inconspicuous. \
         However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!</p>", unsafe_allow_html=True)
         col3, col4 = st.columns(2)
         col3.markdown("<h6 style='text-align: center'>Olaf Scholz retweeting Tagesschau</h6>", unsafe_allow_html=True)
@@ -213,9 +213,9 @@ if selected=="Process":
     with st.expander("Data Understanding"):
         st.markdown("<h6 style='text-align: center'>tar.gz-File</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>It is inevitable for a good data analysis to understand the structure of the source data. \
-        Therefore we needed to understand the strukture of the given file. Within the compressed file we got where smaler seperate JSON-line files.</p>", unsafe_allow_html=True)
+        Therefore we needed to understand the structure of the given file. Within the compressed file we got where smaller seperate JSON-line files.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Furthermore we needed to understand how a JSON file works and which particular informations where included</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Furthermore we needed to understand how a JSON file works and which particular information was included</p>", unsafe_allow_html=True) 
         st.write("Included important informations")
         st.write("- http status")
         st.write("- account name")
@@ -232,7 +232,7 @@ if selected=="Process":
             
     with st.expander("Data Preparation"):
         st.markdown("<br><h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Before analysis starts we need to prepare our dataframe. To do this, we used several functions. Here are some examples:</p>", unsafe_allow_html=True) 
         st.write("- convert source data into csv")
         st.write("- reduce the amount of tweets")
         st.write("- transform ä,ö,ü")
@@ -242,7 +242,7 @@ if selected=="Process":
         st.write("- remove retweet information") 
         
         st.markdown("<br><h6 style='text-align: center'>Differences</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>In the following table one can see the differnce of raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>In the following table one can see the difference of a raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
 
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
@@ -278,7 +278,7 @@ if selected=="Process":
             plt.axis("off")
             st.pyplot(fig)
         st.markdown("<h6 style='text-align: center'>Count of tweets</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Please select the checkbox if interested in how many tweets per party are include in the dataframe after all the preparation</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Please select the checkbox if interested in how many tweets per party are include in the dataframe after preparation</p>", unsafe_allow_html=True) 
             
         st.text("After the data preparation we really did understand this meme:")
         st.image("meme.png", caption="Meme from Gitbook")
@@ -288,14 +288,14 @@ if selected=="Process":
         ## NB
         st.markdown("<h6 style='text-align: center'>Naive Bayes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
-        Despite some other simple classifies nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
+        Despite some other simple classifiers nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
         col1, col2, col3 = st.columns(3)
         col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg")
         ## SVM
         st.markdown("<h6 style='text-align: center'>Support Vector Machine</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm tries to place the training data in a multidimensional relation. In order to do this datapoint are represented as vectors. \
-        Building on that the algorithm tries to find the best posiblie seperation of these datapoints based on their cathegorie (in our use case the political party). \
-        The effectiveness of this algorithm in complexe use cases was the most important aspect for us based on which we decided to use it.</p>", unsafe_allow_html=True) 
+        Building on that the algorithm tries to find the best possible separation of these datapoints based on their categorie (in our use case the political party). \
+        The effectiveness of this algorithm in complex use cases was the most important aspect for us which was the basis for our decision.</p>", unsafe_allow_html=True) 
         col4, col5, col6 = st.columns(3)
         col5.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_svc_001.png")
         ## LR        
@@ -305,7 +305,7 @@ if selected=="Process":
         col8.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         
     with st.expander("Evaluation"):
-        st.markdown("<p style='text-alighn: center'>Obviously training our KIK wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
+        st.markdown("<p style='text-alighn: center'>Obviously training our KI wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
         Especially the evaluation phase encouraged us to go over the preparation and modeling phase a lot.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>Key points</h6>", unsafe_allow_html=True)
         st.markdown("<ul style='text-align:center'><li>removing stopwords worsened our results</li><li>setting the amount of tweets per party to the same number didn't really improve the results</li><li>changing the training data and only focusing on particular members did improve our results a lot</li></ol>", unsafe_allow_html=True)
