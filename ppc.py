@@ -80,26 +80,23 @@ if selected=="Home":
         st.image("image_jan.jpeg")
         st.markdown("<h5 style='text-align: center'>Jan Amend </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.text("TEXT")
+        st.markdown("<p>TEXT</p>", unsafe_allow_html=True)
 
     with col2:
         st.image("image.jpeg")
         st.markdown("<h5 style='text-align: center'>Jana Adler </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Hi, my name is Jana and I'm currently part of a dual studies programm at DATEV where im focusing on internet security. Since ML and AI is a pretty huge deal in web security I'm very invested in this topic. In my spare time I like to dance and go for a ride on my motorcycle.</p>", unsafe_allow_html=True)
+        st.markdown("<p>Hi, my name is Jana and I'm currently part of a dual studies programm at DATEV where im focusing on internet security. \
+        Since ML and AI is a pretty huge deal in web security I'm very invested in this topic. \
+        In my spare time I like to dance and go for a ride on my motorcycle.</p>", unsafe_allow_html=True)
     
     with col3:
         st.image("image_ser.jpg")
         st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
+        st.markdown("<p>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
         This Project helped me to use theoretical knowledge in Data Science into practical way. \
         In my free time i enjoy going to the gym and suffer there..</p>", unsafe_allow_html=True)
-
-        st.text("Hi! I'm Sergei and I'm a working student at Siemens \n \
-        with focus on Database and IT-Solutions. \n \
-        This Project helped me to use theoretical knowledge in Data Science into practical way. \n \
-        In my free time i enjoy going to the gym and suffer there.")
 
 ##Extract text of tweet and name of party 
 #     tweets = []
@@ -186,8 +183,8 @@ if selected=="Dataset":
 if selected=="Process":
     st.markdown("<h1 style='text-align: center'>CRISP-DM</h1>", unsafe_allow_html=True)
     col1, col2 = st.columns(2)
-    col1.text("BILD")
-    col2.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
+    col2.image('crisp_dm.jpg')
+    col1.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
 
     with st.expander("Business Understanding"):
         st.text("Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own. \n \
@@ -205,6 +202,7 @@ if selected=="Process":
         
     with st.expander("Data Understanding"):
         st.text("blub")
+        
     with st.expander("Data Preparation"):
         st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
