@@ -223,6 +223,7 @@ if selected=="Process":
         st.markdown("<br><h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
         st.write("- convert source data into csv")
+        st.write("- reduce the amount of tweets")
         st.write("- transform ä,ö,ü")
         st.write("- remove unimportant information like 'time'")
         st.write("- remove @-mentions")
@@ -287,12 +288,15 @@ if selected=="Process":
         ## LR
         st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
+  
     with st.expander("Evaluation"):
         st.markdown("<p style='text-alighn: center'>Obviously training our KIK wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
         Especially the evaluation phase encouraged us to go over the preparation and modeling phase a lot.</p>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Due to that these are the key points we discovered:</p>", unsafe_allow_html=True)
-        st.markdown("<ul style='text-align:center'><li>removing stopwords worsened our results</li><li>setting the amount of tweets per party to the same number didn't realy change the output</li></ol>", unsafe_allow_html=True)
-        
+        st.markdown("<ul style='text-align:center'><li>removing stopwords worsened our results</li><li>setting the amount of tweets per party to the same number didn't really improve the results</li><li>changing the training data and only focusing on particular members did improve our results a lot</li></ol>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>In summary we discovered a lot of setbacks and iterations with very bad accuracy. \
+        However, the change that really did the trick was to not reduce the source data random or based on the party, but rather based on particular politicians.</p>", unsafe_allow_html=True)
+        st.text("Sidenote: current evaluation data are shown in the live demo")
     with st.expander("Deployment"):
         st.text("blub")    
 
