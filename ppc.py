@@ -216,7 +216,7 @@ if selected=="Process":
         Therefore we needed to understand the structure of the given file. Within the compressed file we got where smaller seperate JSON-line files.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Furthermore we needed to understand how a JSON file works and which particular information was included</p>", unsafe_allow_html=True) 
-        st.write("Included important informations")
+        st.write("Included important information:")
         st.write("- http status")
         st.write("- account name")
         st.write("- account data (e.g. account name and party")
@@ -391,6 +391,7 @@ if selected=="Live Demo":
         if st.button("Predict"):
             sgd_pred = logreg.predict([new_tweet])
             st.write(sgd_pred)
+            st.balloons()
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
