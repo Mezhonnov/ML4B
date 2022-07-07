@@ -339,7 +339,7 @@ if selected=="Live Demo":
         
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
-            st.markdow("<p>In the following report the most important figures are shown.</p>", unsafe_allow_html=True)
+            st.markdown("<p>In the following report the most important figures are shown.</p>", unsafe_allow_html=True)
             st.text('Model Report:\n ' + classification_report(y_test, nb_pred_res, target_names=my_tags))
             st.markdown("<h6>Confusion Matrix</h6>", unsafe_allow_html=True)
             st.markdow("<p>To get a more detailed overview of the performance please take a look at this matrix.</p>", unsafe_allow_html=True)
@@ -365,7 +365,7 @@ if selected=="Live Demo":
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
             
             st.markdown("<h6>Confusion Matrix</h6>", unsafe_allow_html=True)
-            st.markdow("<p>To get a more detailed overview of the performance please take a look at this matrix.</p>", unsafe_allow_html=True)
+            st.markdown("<p>To get a more detailed overview of the performance please take a look at this matrix.</p>", unsafe_allow_html=True)
             cf_matrix = confusion_matrix(y_test, sgd_pred_res)
             data = pd.DataFrame(cf_matrix)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
@@ -387,7 +387,7 @@ if selected=="Live Demo":
             st.markdow("<p>In the following report the most important figures are shown.</p>", unsafe_allow_html=True)
             st.text('Model Report:\n ' + classification_report(y_test, lg_pred_res, target_names=my_tags))
             st.markdown("<h6>Confusion Matrix</h6>", unsafe_allow_html=True)
-            st.markdow("<p>To get a more detailed overview of the performance please take a look at this matrix.</p>", unsafe_allow_html=True)
+            st.markdown("<p>To get a more detailed overview of the performance please take a look at this matrix.</p>", unsafe_allow_html=True)
             cf_matrix = confusion_matrix(y_test, lg_pred_res)
             data = pd.DataFrame(cf_matrix)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
