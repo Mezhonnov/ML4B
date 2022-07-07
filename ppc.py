@@ -29,6 +29,14 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import nltk
+
+st.set_page_config(page_icon="⭐", page_title="Political Party Tweet Classification", layout="wide")
+
+selected = option_menu(None, ["Home", "Dataset",  "Process", 'Live Demo', 'Other'], 
+    icons=['house', 'file-earmark-text', "cpu", 'collection-play', "cpu"], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+)
+
 ##define some functions
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION)
 def umlaut(text):
