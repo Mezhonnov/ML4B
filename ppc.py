@@ -81,7 +81,9 @@ if selected=="Home":
         st.image("image_jan.jpeg")
         st.markdown("<h5 style='text-align: center'>Jan Amend </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.markdown("<p>TEXT</p>", unsafe_allow_html=True)
+        st.markdown("<p>Hello, 
+I'm Jan and I'm currently a working student as a product manager. 
+Through this project, I was able to gain more experience for the coordination of collaborative software projects. The familiarisation with the topics of ML and AI was particularly interesting, as I had never implemented my own project in these areas before. In my free time, I like to go to the gym or jogging.</p>", unsafe_allow_html=True)
 
     with col2:
         st.image("image.jpeg")
