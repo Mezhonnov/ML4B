@@ -240,7 +240,10 @@ if selected=="Process":
         st.write("- remove @-mentions")
         st.write("- remove punctuation")
         st.write("- remove retweet information") 
-        
+        st.markdown("<ul style='text-align:center'><li>convert source data into csv</li>\
+        <li>reduce the amount of tweets</li><li>transform ä,ö,ü</li><li>remove unimportant information like 'time'</li><li>remove @-mentions</li>\
+        <li>remove punctuation</li><li>remove retweet information</li></ol>", unsafe_allow_html=True)
+
         st.markdown("<br><h6 style='text-align: center'>Differences</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>In the following table one can see the difference of a raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
 
