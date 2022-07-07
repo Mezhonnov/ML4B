@@ -67,21 +67,31 @@ def re_umlaut(text):
     text = text.replace('ssqwe', 'ß')
     return text
 
-st.title('Political Party Classification')
-#present your project
-st.subheader("Our Goal")
-st.text('The goal of our project is to classify Tweets by the political party of the author')
+## HOME
+if selected=="Home":
+    st.markdown("<h1 style='text-align: center'>Political Party Classification</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center'>Our Goal</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center'>The goal of our project is to classify Tweets of german politicans by the political party of the author. However, we don't just want to research the politicians and cathegorize them manually, we want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center'>Our Team</h2>", unsafe_allow_html=True)
 
-#present your team
-with st.expander("Our Team:"):
+    #present your team
     col1, col2, col3 = st.columns(3)
-with col1:
-    st.image("image_jan.jpeg", caption = 'Jan Amend')
-with col2:
-    st.image("image.jpeg", caption = "Jana Adler")
+    with col1:
+        st.image("image_jan.jpeg")
+        st.markdown("<h5 style='text-align: center'>Jan Amend </h5>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+        st.text("TEXT")
 
-with col3:
-    st.image("image_ser.jpg", caption = 'Sergei Mezhonnov')
+    with col2:
+        st.image("image.jpeg")
+        st.markdown("<h5 style='text-align: center'>Jana Adler </h5>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+        st.text("Hi, my name is Jana and I'm currently part of a dual studies programm \n at DATEV where im focusing on internet security. \n Since ML and AI is a pretty huge deal in web security \n I'm very invested in this topic. \n In my spare time I like to dance and \n go for a ride on my motorcycle.")
+    with col3:
+        st.image("image_ser.jpg")
+        st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+        st.text("TEXT")
 
 ##Extract text of tweet and name of party 
 #     tweets = []
