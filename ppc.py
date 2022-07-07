@@ -352,7 +352,7 @@ if selected=="Live Demo":
         if st.button("Evaluation"):
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
             cf_matrix = confusion_matrix(y_test, sgd_pred_res)
-            st.text(cf_matrix[0])
+            st.text(cf_matrix)
 
 
                   
