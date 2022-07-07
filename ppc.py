@@ -220,8 +220,13 @@ if selected=="Process":
         st.write("In summary we got information about the content of the tweet, as well as the authors name and party")
         
     with st.expander("Data Preparation"):
-        st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
-        st.text("- remove retweet information")
+        st.markdown("<p>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
+        st.writ("")
+        st.write("- convert source data into csv")
+        st.write("- remove @-mentions")
+        st.write("- remove puncuation")
+        st.write("- remove retweet information")
+
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
                              'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
