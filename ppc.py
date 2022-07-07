@@ -204,10 +204,10 @@ if selected=="Process":
         
     with st.expander("Data Understanding"):
         st.markdown("<h6 style='text-align: center'>tar.gz-File</h6>", unsafe_allow_html=True)
-        st.markdown("<p>It is inevitable for a good data analysis to understand the structure of the source data. \
+        st.markdown("<p style='text-align: center'>It is inevitable for a good data analysis to understand the structure of the source data. \
         Therefore we needed to understand the strukture of the given File. Within the compressed file we got where smaler seperate JSON-line files.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
-        st.markdown("<p>Furthermore we needed to understand how a JSON file works and which particular informations where included</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Furthermore we needed to understand how a JSON file works and which particular informations where included</p>", unsafe_allow_html=True) 
         st.write("Included important informations")
         st.write("- http status")
         st.write("- account name")
@@ -221,7 +221,7 @@ if selected=="Process":
         
     with st.expander("Data Preparation"):
         st.markdown("<br><h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
-        st.markdown("<p>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
         st.write("- convert source data into csv")
         st.write("- transform ä,ö,ü")
         st.write("- remove unimportant information like 'time'")
@@ -230,7 +230,7 @@ if selected=="Process":
         st.write("- remove retweet information") 
         
         st.markdown("<br><h6 style='text-align: center'>Differences</h6>", unsafe_allow_html=True)
-        st.markdown("><p>In the following table one can see the differnce of raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>In the following table one can see the differnce of raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
 
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
