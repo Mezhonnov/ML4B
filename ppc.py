@@ -179,12 +179,14 @@ if selected=="Dataset":
     if st.checkbox("Show me example"):
         data = json.load(open('data.json'))
         st.write(data)
+        
 ## PROCESS
 if selected=="Process":
     st.markdown("<h1 style='text-align: center'>CRISP-DM</h1>", unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    col2.image('crisp_dm.jpg')
-    col1.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
+
+    col1, col2 = st.columns(3)
+    col3.image('crisp_dm.jpg')
 
     with st.expander("Business Understanding"):
         st.text("Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own. \n \
