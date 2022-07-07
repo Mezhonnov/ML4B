@@ -186,15 +186,15 @@ if selected=="Process":
     st.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
 
     cola, colb, colc = st.columns(3)
-    colc.image('crisp_dm.jpg')
+    colb.image('crisp_dm.jpg')
 
     with st.expander("Business Understanding"):
-        st.text("Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own. \n \
-        There are almost no limitis to what you can include in your tweet. You can use text, numbers and emojicons. \n \
-        Despite the almost unlimited possibilites to write a tweet one might use same patterns - like special emojis or syntax - over and over again. \n \
-        Furthermore members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \n \
-        The interesting part is to find exactly these patterns. Some are quite obvious and others are rather inconspicuous. \n\
-        However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!")
+        st.markdown("<p>Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own.\
+        There are almost no limitis to what you can include in your tweet. You can use text, numbers and emojicons. \
+        Despite the almost unlimited possibilites to write a tweet one might use same patterns - like special emojis or syntax - over and over again. \
+        Furthermore members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \
+        The interesting part is to find exactly these patterns. Some are quite obvious and others are rather inconspicuous. \
+        However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!</p>", unsafe_allow_html=True)
         col3, col4 = st.columns(2)
         col3.markdown("<h6 style='text-align: center'>Olaf Scholz retweeting Tagesschau</h6>", unsafe_allow_html=True)
         col3.image('olaf_scholz_tweet.png')
@@ -203,8 +203,12 @@ if selected=="Process":
         col4.image('susanne_henning_tweet.png')
         
     with st.expander("Data Understanding"):
-        st.text("blub")
-        
+        st.markdown("<h6 style='text-align: center'>tar.gz-File</h6>", unsafe_allow_html=True)
+        st.markdown("<p>It is inevitable for a good data analysis to understand the structure of the source data. \
+        Therefore we needed to understand the strukture of the given File. Within the compressed file we got where smaler seperate JSON-line files.</p>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
+        st.markdown("<p>Furthermore we needed to understand how a JSON file works and which particular informations where included</p>", unsafe_allow_html=True) 
+        st.write(" blub")    
     with st.expander("Data Preparation"):
         st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
