@@ -278,10 +278,10 @@ if selected=="Process":
         st.markdown("<p style='text-align: center'>Part of this process section is to decide which algorithms to use. We decided to use the following three: Naive Bayes, Linear Support Vector Machine, Logistic Regression.</p>", unsafe_allow_html=True) 
         ## NB
         st.markdown("<h6 style='text-align: center'>Naive Bayes</h6>", unsafe_allow_html=True)
-        col1, col2 = st.columns(2)
-        col1.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
-        Despite some other simple classifies nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
-        col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg")
+        st.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
+        Despite some other simple classifies nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.\
+        </p><img src='https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg', alt='naive bayes image'/>", unsafe_allow_html=True) 
+        st.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg")
         ## SVM
         st.markdown("<h6 style='text-align: center'>Support Vector Machine</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm tries to place the training data in a multidimensional relation. In order to do this datapoint are represented as vectors. \
