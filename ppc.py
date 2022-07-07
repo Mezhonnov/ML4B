@@ -254,6 +254,9 @@ if selected=="Process":
 
         if st.checkbox("Count of Tweets"):
             st.image("count.jpg", caption = "Count of Tweets per Party")
+            
+        st.text("After the data preparation we really did understand this meme:")
+        st.image("meme.png", caption="Meme from Gitbook")
 
     with st.expander("Modeling"):
         st.text("blub")
