@@ -205,7 +205,7 @@ if selected=="Process":
     with st.expander("Data Understanding"):
         st.markdown("<h6 style='text-align: center'>tar.gz-File</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>It is inevitable for a good data analysis to understand the structure of the source data. \
-        Therefore we needed to understand the strukture of the given File. Within the compressed file we got where smaler seperate JSON-line files.</p>", unsafe_allow_html=True)
+        Therefore we needed to understand the strukture of the given file. Within the compressed file we got where smaler seperate JSON-line files.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Furthermore we needed to understand how a JSON file works and which particular informations where included</p>", unsafe_allow_html=True) 
         st.write("Included important informations")
@@ -266,7 +266,7 @@ if selected=="Process":
             plt.axis("off")
             st.pyplot(fig)
         st.markdown("<h6 style='text-align: center'>Count of tweets</h6>", unsafe_allow_html=True)
-        st.markdown("<p>Please select the checkbox if interested in how many tweets per party are include in the dataframe after all the preparation</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Please select the checkbox if interested in how many tweets per party are include in the dataframe after all the preparation</p>", unsafe_allow_html=True) 
         if st.checkbox("Count of Tweets"):
             st.image("count.jpg", caption = "Count of Tweets per Party")
             
@@ -274,9 +274,25 @@ if selected=="Process":
         st.image("meme.png", caption="Meme from Gitbook")
 
     with st.expander("Modeling"):
-        st.text("blub")
+        st.markdown("<p style='text-align: center'>Part of this process section is to decide which algorithms to use. We decided to use the following three: Naive Bayes, Linear Support Vector Machine, Logistic Regression.</p>", unsafe_allow_html=True) 
+        ## NB
+        st.markdown("<h6 style='text-align: center'>Naive Bayes</h6>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
+        Despite some other simple classifies nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
+        ## SVM
+        st.markdown("<h6 style='text-align: center'>Support Vector Machine</h6>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>This algorithm tries to place the training data in a multidimensional relation. In order to do this datapoint are represented as vectors. \
+        Building on that the algorithm tries to find the best posiblie seperation of these datapoints based on their cathegorie (in our use case the political party). \
+        The effectiveness of this algorithm in complexe use cases was the most important aspect for us based on which we decided to use it.</p>", unsafe_allow_html=True) 
+        ## LR
+        st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
     with st.expander("Evaluation"):
-        st.text("blub")
+        st.markdown("<p style='text-alighn: center'>Obviously training our KIK wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
+        Especially the evaluation phase encouraged us to go over the preparation and modeling phase a lot.</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>Due to that these are the key points we discovered:</p>", unsafe_allow_html=True)
+        st.markdown("<ul style='text-align:center'><li>removing stopwords worsened our results</li><li>setting the amount of tweets per party to the same number didn't realy change the output</li></ol>", unsafe_allow_html=True)
+        
     with st.expander("Deployment"):
         st.text("blub")    
 
