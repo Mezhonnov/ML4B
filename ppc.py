@@ -87,12 +87,15 @@ if selected=="Home":
         st.markdown("<h5 style='text-align: center'>Jana Adler </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Hi, my name is Jana and I'm currently part of a dual studies programm at DATEV where im focusing on internet security. Since ML and AI is a pretty huge deal in web security I'm very invested in this topic. In my spare time I like to dance and go for a ride on my motorcycle.</p>", unsafe_allow_html=True)
-        st.markdown("<p>Hi, my name is Jana and I'm currently part of a dual studies programm \n at DATEV where im focusing on internet security. \n Since ML and AI is a pretty huge deal in web security \n I'm very invested in this topic. \n In my spare time I like to dance and \n go for a ride on my motorcycle.</p>")
-        st.markdown("<p>Hi, my name is Jana and I'm currently part of a dual studies programm at DATEV where im focusing on internet security. Since ML and AI is a pretty huge deal in web security I'm very invested in this topic. In my spare time I like to dance and go for a ride on my motorcycle.</p>")
+    
     with col3:
         st.image("image_ser.jpg")
         st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
+        This Project helped me to use theoretical knowledge in Data Science into practical way. \
+        In my free time i enjoy going to the gym and suffer there..</p>", unsafe_allow_html=True)
+
         st.text("Hi! I'm Sergei and I'm a working student at Siemens \n \
         with focus on Database and IT-Solutions. \n \
         This Project helped me to use theoretical knowledge in Data Science into practical way. \n \
