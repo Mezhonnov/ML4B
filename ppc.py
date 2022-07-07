@@ -174,43 +174,65 @@ if selected=="Dataset":
     if st.checkbox("Show me example"):
         data = json.load(open('data.json'))
         st.write(data)
+## PROCESS
+if selected=="Process":
+    col1.markdown("<h1 style='text-align: center'>CRISP-DM</h1>", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    col1.text("BILD")
+    col2.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
 
-with st.expander('Data Preparation'):
-    st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
-    d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
-                         'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
-                         'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
-    table = pd.DataFrame(data=d)
-    st.table(table)
-    opt = st.selectbox("Word Cloud", (" ","Without Stopwords","With Stopwords"))
-    if opt == " ":
-        st.write(" ")
-    elif opt == "Without Stopwords":
-        text = ''
-        for tweet in df['tweet']:
-            text += ''.join(tweet.split(','))
-        wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
-        fig = plt.figure(figsize=(20,20))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        st.pyplot(fig)
-        
-    elif opt == "With Stopwords":
-        
-        stop_words = stopwords.words('german')    
-        df['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
-        text = ''
-        for tweet in df['tweet']:
-            text += ''.join(tweet.split(','))
-        wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
-        fig = plt.figure(figsize=(20,20))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        st.pyplot(fig)
-        
-    if st.checkbox("Count of Tweets"):
-        st.image("count.jpg", caption = "Count of Tweets per Party")
+    with st.expander("Business Understanding"):
+        st.text("Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own. \n \
+        There are almost no limitis to what you can include in your tweet. You can use text, numbers and emojicons. \n \
+        Despite the almost unlimited possibilites to write a tweet one might use same patterns - like special emojis or syntax - over and over again. \n \
+        Furthermore members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \n \
+        The interesting part is to find exactly these patterns. Some are quite obvious and others are rather inconspicuous. \n\
+        However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!")
 
+    with st.expander("Data Understanding"):
+        st.text("blub")
+    with st.expander("Data Preparation"):
+        st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
+        d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
+                             'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
+                             'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
+        table = pd.DataFrame(data=d)
+        st.table(table)
+        opt = st.selectbox("Word Cloud", (" ","Without Stopwords","With Stopwords"))
+        if opt == " ":
+            st.write(" ")
+        elif opt == "Without Stopwords":
+            text = ''
+            for tweet in df['tweet']:
+                text += ''.join(tweet.split(','))
+            wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
+            fig = plt.figure(figsize=(20,20))
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis("off")
+            st.pyplot(fig)
+
+        elif opt == "With Stopwords":
+
+            stop_words = stopwords.words('german')    
+            df['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
+            text = ''
+            for tweet in df['tweet']:
+                text += ''.join(tweet.split(','))
+            wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
+            fig = plt.figure(figsize=(20,20))
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis("off")
+            st.pyplot(fig)
+
+        if st.checkbox("Count of Tweets"):
+            st.image("count.jpg", caption = "Count of Tweets per Party")
+
+    with st.expander("Modeling"):
+        st.text("blub")
+    with st.expander("Evaluation"):
+        st.text("blub")
+    with st.expander("Deployment"):
+        st.text("blub")    
 
 
 with st.expander("Prediction"):
