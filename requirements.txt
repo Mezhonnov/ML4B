@@ -9,3 +9,4 @@ scikit-plot==0.3.7
 streamlit==1.10.0
 tweet-preprocessor==0.6.0
 wordcloud==1.8.1
+streamlit-option-menu
