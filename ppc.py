@@ -352,12 +352,11 @@ if selected=="Live Demo":
             
         if st.button("Evaluation"):
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
-            if st.checkbox("Show me confusion matrix"):
-                cf_matrix = confusion_matrix(y_test, sgd_pred_res)
-                data = pd.DataFrame(cf_matrix)
-                test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
-                test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
-                st.table(test)
+            cf_matrix = confusion_matrix(y_test, sgd_pred_res)
+            data = pd.DataFrame(cf_matrix)
+            test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
+            test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
+            st.table(test)
 
                   
     elif option == 'Logistic Regression':
