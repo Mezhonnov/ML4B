@@ -176,7 +176,7 @@ df = pd.read_csv('result.csv')
 nltk.download('stopwords')
 if selected=="Dataset":
     st.markdown("<h1 style='text-align: center'>Twitter Dataset</h1>", unsafe_allow_html=True)
-    st.text('Our dataset is a JSON file consisting of official tweets from members of the german parliament as of march 2021. Thus it includes tweets from CDU/CSU, SPD, Die Gruenen, Die Linken, AFD, etc. \n The main problem one will soon discover is...')
+    st.markdown("<p>Our dataset is a JSON file consisting of official tweets from members of the german parliament as of march 2021. Thus it includes tweets from CDU/CSU, SPD, Die Gruenen, Die Linken, AFD, etc. \n The main problem one will soon discover is...</p>", unsafe_allow_html=True)
     
     st.markdown("<h5>...our dataset is 8GB of JL-Data...</h5>", unsafe_allow_html=True)
 
@@ -226,6 +226,7 @@ if selected=="Process":
         
         if st.checkbox("Count of Tweets"):
             st.image("count.jpg", caption = "Count of Tweets per Party")
+            
     with st.expander("Data Preparation"):
         st.markdown("<br><h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
