@@ -238,7 +238,7 @@ if selected=="Process":
         st.write("- transform ä,ö,ü")
         st.write("- remove unimportant information like 'time'")
         st.write("- remove @-mentions")
-        st.write("- remove puncuation")
+        st.write("- remove punctuation")
         st.write("- remove retweet information") 
         
         st.markdown("<br><h6 style='text-align: center'>Differences</h6>", unsafe_allow_html=True)
@@ -246,7 +246,7 @@ if selected=="Process":
 
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
-                             'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
+                             'Result': ["Es waere gut..", "TOOOOOOORRRRR!!! fcbayern", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
         table = pd.DataFrame(data=d)
         st.table(table)
         
