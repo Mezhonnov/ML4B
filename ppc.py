@@ -287,11 +287,13 @@ if selected=="Process":
         st.markdown("<p style='text-align: center'>This algorithm tries to place the training data in a multidimensional relation. In order to do this datapoint are represented as vectors. \
         Building on that the algorithm tries to find the best posiblie seperation of these datapoints based on their cathegorie (in our use case the political party). \
         The effectiveness of this algorithm in complexe use cases was the most important aspect for us based on which we decided to use it.</p>", unsafe_allow_html=True) 
-        col3.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_svc_001.png")
-        ## LR
+        col4, col5, col6 = st.columns(3)
+        col5.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_svc_001.png")
+        ## LR        
+        col7, col8, col9 = st.columns(3)
         st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
-        col3.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
+        col9.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         
     with st.expander("Evaluation"):
         st.markdown("<p style='text-alighn: center'>Obviously training our KIK wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
