@@ -220,7 +220,7 @@ if selected=="Process":
         st.write("In summary we got information about the content of the tweet, as well as the authors name and party")
         
     with st.expander("Data Preparation"):
-        st.markdown("<h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
+        st.markdown("<br><h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
         st.markdown("<p>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
         st.write("- convert source data into csv")
         st.write("- transform ä,ö,ü")
@@ -229,8 +229,8 @@ if selected=="Process":
         st.write("- remove puncuation")
         st.write("- remove retweet information") 
         
-        st.markdown("<h6 style='text-align: center'>Differences</h6>", unsafe_allow_html=True)
-        st.markdown("<br><p>In the following table one can see the differnce of raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
+        st.markdown("<br><h6 style='text-align: center'>Differences</h6>", unsafe_allow_html=True)
+        st.markdown("><p>In the following table one can see the differnce of raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
 
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
@@ -238,8 +238,8 @@ if selected=="Process":
         table = pd.DataFrame(data=d)
         st.table(table)
         
-        st.markdown("<h6 style='text-align: center'>Stop words</h6>", unsafe_allow_html=True)
-        st.markdown("<br><p>Another thing we tried is to use the stop words function, which removes unnecessary german words from a text. Unnecessary as such are for example pronouns. \n \
+        st.markdown("<br><h6 style='text-align: center'>Stop words</h6>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>Another thing we tried is to use the stop words function, which removes unnecessary german words from a text. Unnecessary as such are for example pronouns. \n \
         In the following wordclouds one can see the most common words in our dataset including the stop words function as well as without the function.</p>", unsafe_allow_html=True) 
         opt = st.selectbox("Word Cloud", ("Please choose...","Without Stopwords","With Stopwords"))
         if opt == "Please choose...":
