@@ -220,6 +220,8 @@ if selected=="Process":
         st.write("- response")
         st.write("In summary we got information about the content of the tweet, as well as the authors name and party")
         
+        if st.checkbox("Count of Tweets"):
+            st.image("count.jpg", caption = "Count of Tweets per Party")
     with st.expander("Data Preparation"):
         st.markdown("<br><h6 style='text-align: center'>Changes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
@@ -269,8 +271,6 @@ if selected=="Process":
             st.pyplot(fig)
         st.markdown("<h6 style='text-align: center'>Count of tweets</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Please select the checkbox if interested in how many tweets per party are include in the dataframe after all the preparation</p>", unsafe_allow_html=True) 
-        if st.checkbox("Count of Tweets"):
-            st.image("count.jpg", caption = "Count of Tweets per Party")
             
         st.text("After the data preparation we really did understand this meme:")
         st.image("meme.png", caption="Meme from Gitbook")
