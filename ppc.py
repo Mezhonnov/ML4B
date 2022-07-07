@@ -86,7 +86,8 @@ if selected=="Home":
         st.image("image.jpeg")
         st.markdown("<h5 style='text-align: center'>Jana Adler </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.text("Hi, my name is Jana and I'm currently part of a dual studies programm \n at DATEV where im focusing on internet security. \n Since ML and AI is a pretty huge deal in web security \n I'm very invested in this topic. \n In my spare time I like to dance and \n go for a ride on my motorcycle.")
+        st.markdown("<p>Hi, my name is Jana and I'm currently part of a dual studies programm \n at DATEV where im focusing on internet security. \n Since ML and AI is a pretty huge deal in web security \n I'm very invested in this topic. \n In my spare time I like to dance and \n go for a ride on my motorcycle.</p>")
+        st.markdown("<p>Hi, my name is Jana and I'm currently part of a dual studies programm at DATEV where im focusing on internet security. Since ML and AI is a pretty huge deal in web security I'm very invested in this topic. In my spare time I like to dance and go for a ride on my motorcycle.</p>")
     with col3:
         st.image("image_ser.jpg")
         st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
@@ -192,10 +193,12 @@ if selected=="Process":
         The interesting part is to find exactly these patterns. Some are quite obvious and others are rather inconspicuous. \n\
         However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!")
         col3, col4 = st.columns(2)
-        col3.image('olaf_scholz_tweet.png')
         col3.markdown("<h6 style='text-align: center'>Olaf Scholz retweeting Tagesschau</h6>", unsafe_allow_html=True)
-        col4.image('susanne_henning_tweet.png')
+        col3.image('olaf_scholz_tweet.png')
+        
         col4.markdown("<h6 style='text-align: center'>Susanne Henning-Welson tweeting a link</h6>", unsafe_allow_html=True)
+        col4.image('susanne_henning_tweet.png')
+        
     with st.expander("Data Understanding"):
         st.text("blub")
     with st.expander("Data Preparation"):
