@@ -28,6 +28,10 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import nltk
+from streamlit_option_menu import option_menu
+## page settings
+st.set_page_config(page_icon="⭐", page_title="Political Party Tweet Classification", layout="wide")
+
 ##define some functions
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION)
 def umlaut(text):
@@ -58,21 +62,11 @@ def re_umlaut(text):
     text = text.replace('ssqwe', 'ß')
     return text
 
-st.title('Political Party Classification')
-#present your project
-st.subheader("Our Goal")
-st.text('The goal of our project is to classify Tweets by the political party of the author')
-
-#present your team
-with st.expander("Our Team:"):
-    col1, col2, col3 = st.columns(3)
-with col1:
-    st.image("image_jan.jpeg", caption = 'Jan Amend')
-with col2:
-    st.image("image.jpeg", caption = "Jana Adler")
-
-with col3:
-    st.image("image_ser.jpg", caption = 'Sergei Mezhonnov')
+## page setting
+selected = option_menu(None, ["Home", "Dataset",  "Process", 'Live Demo', 'Other'], 
+    icons=['house', 'file-earmark-text', "cpu", 'collection-play', "cpu"], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+)
 
 ##Extract text of tweet and name of party 
 #     tweets = []
@@ -145,50 +139,105 @@ with col3:
 ##datei einlesen
 df = pd.read_csv('result.csv')
 nltk.download('stopwords')
-with st.expander('Example of dataset'):
-    st.text('Our dataset is 8GB of JL-Data...')
-    st.image("https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535", caption = "My Notebook with 4GB RAM")
+
+## HOME
+if selected=="Home":
+    st.markdown("<h1 style='text-align: center'>Political Party Classification</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center'>Our Goal</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center'>The goal of our project is to classify Tweets of german politicans by the political party of the author. However, we don't just want to research the politicians and cathegorize them manually, we want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center'>Our Team</h2>", unsafe_allow_html=True)
+
+    #teampresentation
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.image("image_jan.jpeg")
+        st.markdown("<h5 style='text-align: center'>Jan Amend </h5>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+        st.text("TEXT")
+
+    with col2:
+        st.image("image.jpeg")
+        st.markdown("<h5 style='text-align: center'>Jana Adler </h5>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+        st.text("Hi, my name is Jana and I'm currently part of a dual studies programm \n at DATEV where im focusing on internet security. \n Since ML and AI is a pretty huge deal in web security \n I'm very invested in this topic. \n In my spare time I like to dance and \n go for a ride on my motorcycle.")
+    with col3:
+        st.image("image_ser.jpg")
+        st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+        st.text("TEXT")
+
+## DATASET
+if selected=="Dataset":
+    st.markdown("<h1 style='text-align: center'>Twitter Dataset</h1>", unsafe_allow_html=True)
+    st.text('Our dataset is a JSON file consisting of official tweets from members of the german parliament as of march 2021. Thus it includes tweets from CDU/CSU, SPD, Die Gruenen, Die Linken, AFD, etc. \n The main problem one will soon discover is...')
+    st.markdown("<h5>...our dataset is 8GB of JL-Data...</h5>", unsafe_allow_html=True)
+    st.image("https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535", caption = "My Notebook with 4GB RAM")      
     if st.checkbox("Show me example"):
         data = json.load(open('data.json'))
-        st.write(data)   
-
-with st.expander('Data Preparation'):
-    st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
-    d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
-                         'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
-                         'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
-    table = pd.DataFrame(data=d)
-    st.table(table)
-    opt = st.selectbox("Word Cloud", (" ","Without Stopwords","With Stopwords"))
-    if opt == " ":
-        st.write(" ")
-    elif opt == "Without Stopwords":
-        text = ''
-        for tweet in df['tweet']:
-            text += ''.join(tweet.split(','))
-        wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
-        fig = plt.figure(figsize=(20,20))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        st.pyplot(fig)
+        st.write(data) 
         
-    elif opt == "With Stopwords":
-        
-        stop_words = stopwords.words('german')    
-        df['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
-        text = ''
-        for tweet in df['tweet']:
-            text += ''.join(tweet.split(','))
-        wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
-        fig = plt.figure(figsize=(20,20))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        st.pyplot(fig)
-        
-    if st.checkbox("Count of Tweets"):
-        st.image("count.jpg", caption = "Count of Tweets per Party")
+## PROCESS
+if selected=="Process":
+    col1.markdown("<h1 style='text-align: center'>CRISP-DM</h1>", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    col1.text("BILD")
+    col2.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
 
+    with st.expander("Business Understanding"):
+        st.text("Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own. \n \
+        There are almost no limitis to what you can include in your tweet. You can use text, numbers and emojicons. \n \
+        Despite the almost unlimited possibilites to write a tweet one might use same patterns - like special emojis or syntax - over and over again. \n \
+        Furthermore members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \n \
+        The interesting part is to find exactly these patterns. Some are quite obvious and others are rather inconspicuous. \n\
+        However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!")
 
+    with st.expander("Data Understanding"):
+        st.text("blub")
+        
+    with st.expander("Data Preparation"):
+        st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
+        d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
+                             'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
+                             'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
+        table = pd.DataFrame(data=d)
+        st.table(table)
+        opt = st.selectbox("Word Cloud", (" ","Without Stopwords","With Stopwords"))
+        if opt == " ":
+            st.write(" ")
+        elif opt == "Without Stopwords":
+            text = ''
+            for tweet in df['tweet']:
+                text += ''.join(tweet.split(','))
+            wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
+            fig = plt.figure(figsize=(20,20))
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis("off")
+            st.pyplot(fig)
+
+        elif opt == "With Stopwords":
+            stop_words = stopwords.words('german')    
+            df['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
+            text = ''
+            for tweet in df['tweet']:
+                text += ''.join(tweet.split(','))
+            wordcloud = WordCloud(max_words=500, width=1500, height = 800, collocations=False).generate(text)
+            fig = plt.figure(figsize=(20,20))
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis("off")
+            st.pyplot(fig)
+
+        if st.checkbox("Count of Tweets"):
+            st.image("count.jpg", caption = "Count of Tweets per Party")
+            
+    with st.expander("Modeling"):
+        st.text("blub")
+        
+    with st.expander("Evaluation"):
+        st.text("blub")
+        
+    with st.expander("Deployment"):
+        st.text("blub")
+        
 
 with st.expander("Prediction"):
     #stop_words = stopwords.words('german')    
