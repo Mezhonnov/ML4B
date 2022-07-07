@@ -98,6 +98,10 @@ if selected=="Home":
         st.markdown("<p>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
         This Project helped me to use theoretical knowledge in Data Science into practical way. \
         In my free time i enjoy going to the gym and suffer there..</p>", unsafe_allow_html=True)
+        
+    st.markdown("<h2 style='text-align: center'>Our Vision</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center'>Changing the world with NLP! Through detecting political tendencies in tweets and political shifts in politician we want to make Twitter a saver place.</p>", unsafe_allow_html=True)
+    
 
 ##Extract text of tweet and name of party 
 #     tweets = []
