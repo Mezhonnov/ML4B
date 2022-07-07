@@ -240,8 +240,8 @@ if selected=="Process":
         st.markdown("<h6 style='text-align: center'>Stop words</h6>", unsafe_allow_html=True)
         st.markdown("<br><p>Another thing we tried is to use the stop words function, which removes unnecessary german words from a text. Unnecessary as such are for example pronouns. \n \
         In the following wordclouds one can see the most common words in our dataset including the stop words function as well as without the function.</p>", unsafe_allow_html=True) 
-        opt = st.selectbox("Word Cloud", (" ","Without Stopwords","With Stopwords"))
-        if opt == "Please choose... ":
+        opt = st.selectbox("Word Cloud", ("Please choose...","Without Stopwords","With Stopwords"))
+        if opt == "Please choose...":
             st.write(" ")
         elif opt == "Without Stopwords Function":
             text = ''
@@ -265,7 +265,7 @@ if selected=="Process":
             plt.imshow(wordcloud, interpolation='bilinear')
             plt.axis("off")
             st.pyplot(fig)
-
+        st.markdown("<br><p>Please select the checkbox if interested in how many tweets per party are include in the dataframe after all the preparation</p>", unsafe_allow_html=True) 
         if st.checkbox("Count of Tweets"):
             st.image("count.jpg", caption = "Count of Tweets per Party")
             
