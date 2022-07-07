@@ -193,9 +193,9 @@ if selected=="Process":
         However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!")
         col3, col4 = st.columns(2)
         col3.image('olaf_scholz_tweet.png')
-        col3.markdown("<h2 style='text-align: center'>Olaf Scholz retweeting Tagesschau</h2>", unsafe_allow_html=True)
+        col3.markdown("<h6 style='text-align: center'>Olaf Scholz retweeting Tagesschau</h6>", unsafe_allow_html=True)
         col4.image('susanne_henning_tweet.png')
-        col4.markdown("<h2 style='text-align: center'>Susanne Henning-Welson tweeting a link</h2>", unsafe_allow_html=True)
+        col4.markdown("<h6 style='text-align: center'>Susanne Henning-Welson tweeting a link</h6>", unsafe_allow_html=True)
     with st.expander("Data Understanding"):
         st.text("blub")
     with st.expander("Data Preparation"):
