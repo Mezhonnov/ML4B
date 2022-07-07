@@ -221,11 +221,12 @@ if selected=="Process":
         
     with st.expander("Data Preparation"):
         st.markdown("<p>Before Analyse to start we need to prepare our dataframe. To do this, we used several functions. Like:</p>", unsafe_allow_html=True) 
-        st.writ("")
         st.write("- convert source data into csv")
+        st.write("- remove unimportant information like 'time'")
         st.write("- remove @-mentions")
         st.write("- remove puncuation")
         st.write("- remove retweet information")
+        st.markdown("<p>In the following table one can see the differnce of raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
 
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
