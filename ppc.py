@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
+from streamlit_option_menu import option_menu
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import pandas_profiling
