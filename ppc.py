@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
+from streamlit_option_menu import option_menu
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import pandas_profiling
@@ -28,7 +29,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 import nltk
-from streamlit_option_menu import option_menu
 ## page settings
 st.set_page_config(page_icon="⭐", page_title="Political Party Tweet Classification", layout="wide")
 
