@@ -91,7 +91,10 @@ if selected=="Home":
         st.image("image_ser.jpg")
         st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.text("TEXT")
+        st.text("Hi! I'm Sergei and I'm a working student at Siemens \n \
+        with focus on Database and IT-Solutions. \n \
+        This Project helped me to use theoretical knowledge in Data Science into practical way. \n \
+        In my free time i enjoy going to the gym and suffer there.")
 
 ##Extract text of tweet and name of party 
 #     tweets = []
