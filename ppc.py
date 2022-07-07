@@ -191,7 +191,9 @@ if selected=="Process":
         Furthermore members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \n \
         The interesting part is to find exactly these patterns. Some are quite obvious and others are rather inconspicuous. \n\
         However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!")
-
+        col3, col4 = st.columns(2)
+        col3.image('olaf_scholz_tweet.png')
+        col4.image('susanne_henning_tweet.png')
     with st.expander("Data Understanding"):
         st.text("blub")
     with st.expander("Data Preparation"):
