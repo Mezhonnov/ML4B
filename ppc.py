@@ -208,7 +208,17 @@ if selected=="Process":
         Therefore we needed to understand the strukture of the given File. Within the compressed file we got where smaler seperate JSON-line files.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
         st.markdown("<p>Furthermore we needed to understand how a JSON file works and which particular informations where included</p>", unsafe_allow_html=True) 
-        st.write(" blub")    
+        st.write("Included important informations")
+        st.write("- http status")
+        st.write("- account name")
+        st.write("- account data")
+        st.write("  - name")
+        st.write("  - party")
+        st.write("  - id")
+        st.write("  - sc")
+        st.write("- response")
+        st.write("In summary we got information about the content of the tweet, as well as the authors name and party")
+        
     with st.expander("Data Preparation"):
         st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
