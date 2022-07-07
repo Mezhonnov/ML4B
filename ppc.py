@@ -293,7 +293,7 @@ if selected=="Process":
         col7, col8, col9 = st.columns(3)
         st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
-        col9.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
+        col8.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         
     with st.expander("Evaluation"):
         st.markdown("<p style='text-alighn: center'>Obviously training our KIK wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
