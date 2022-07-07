@@ -292,14 +292,13 @@ if selected=="Process":
     with st.expander("Evaluation"):
         st.markdown("<p style='text-alighn: center'>Obviously training our KIK wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
         Especially the evaluation phase encouraged us to go over the preparation and modeling phase a lot.</p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Due to that these are the key points we discovered:</p>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: center'>Key points</h6>", unsafe_allow_html=True)
         st.markdown("<ul style='text-align:center'><li>removing stopwords worsened our results</li><li>setting the amount of tweets per party to the same number didn't really improve the results</li><li>changing the training data and only focusing on particular members did improve our results a lot</li></ol>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>In summary we discovered a lot of setbacks and iterations with very bad accuracy. \
         However, the change that really did the trick was to not reduce the source data random or based on the party, but rather based on particular politicians.</p>", unsafe_allow_html=True)
         st.text("Sidenote: current evaluation data are shown in the live demo")
     with st.expander("Deployment"):
-        st.text("blub")    
-
+        st.markdown("<p style='text-alighn: center'>The deployment itself was quite smooth. However, we run some problems with the streamlit online version. The online version had problems with 'checking the health of the project' while the local version worked very well.</p>", unsafe_allow_html=True)  
 
 if selected=="Live Demo":  
     #stop_words = stopwords.words('german')    
