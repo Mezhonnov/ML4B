@@ -279,8 +279,7 @@ if selected=="Process":
         ## NB
         st.markdown("<h6 style='text-align: center'>Naive Bayes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
-        Despite some other simple classifies nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.\
-        </p><img src='https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg', alt='naive bayes image'/>", unsafe_allow_html=True) 
+        Despite some other simple classifies nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
         col1, col2, col3 = st.columns(3)
         col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg")
         ## SVM
@@ -288,10 +287,12 @@ if selected=="Process":
         st.markdown("<p style='text-align: center'>This algorithm tries to place the training data in a multidimensional relation. In order to do this datapoint are represented as vectors. \
         Building on that the algorithm tries to find the best posiblie seperation of these datapoints based on their cathegorie (in our use case the political party). \
         The effectiveness of this algorithm in complexe use cases was the most important aspect for us based on which we decided to use it.</p>", unsafe_allow_html=True) 
+        col3.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_svc_001.png")
         ## LR
         st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
-  
+        col3.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
+        
     with st.expander("Evaluation"):
         st.markdown("<p style='text-alighn: center'>Obviously training our KIK wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
         Especially the evaluation phase encouraged us to go over the preparation and modeling phase a lot.</p>", unsafe_allow_html=True)
