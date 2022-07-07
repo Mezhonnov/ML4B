@@ -291,9 +291,9 @@ if selected=="Process":
         col4, col5, col6 = st.columns(3)
         col5.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_svc_001.png")
         ## LR        
-        col7, col8, col9 = st.columns(3)
         st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
+        col7, col8, col9 = st.columns(3)
         col8.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         
     with st.expander("Evaluation"):
@@ -304,6 +304,7 @@ if selected=="Process":
         st.markdown("<p style='text-align: center'>In summary we discovered a lot of setbacks and iterations with very bad accuracy. \
         However, the change that really did the trick was to not reduce the source data random or based on the party, but rather based on particular politicians.</p>", unsafe_allow_html=True)
         st.text("Sidenote: current evaluation data are shown in the live demo")
+   
     with st.expander("Deployment"):
         st.markdown("<p style='text-alighn: center'>The deployment itself was quite smooth. However, we run some problems with the streamlit online version. The online version had problems with 'checking the health of the project' while the local version worked very well.</p>", unsafe_allow_html=True)  
 
@@ -352,7 +353,7 @@ if selected=="Live Demo":
         if st.button("Evaluation"):
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
             cf_matrix = confusion_matrix(y_test, sgd_pred_res)
-            st.text(cf_matrix)
+            st.table(cf_matrix)
 
 
                   
