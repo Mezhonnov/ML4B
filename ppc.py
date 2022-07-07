@@ -346,6 +346,7 @@ if selected=="Live Demo":
         if st.button("Predict"):
             nb_pred = nb.predict(vectorizer.transform([new_tweet]))
             st.write(nb_pred)
+            st.balloons()
         
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
