@@ -28,6 +28,7 @@ from sklearn import metrics
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
 import nltk
 
 st.set_page_config(page_icon="⭐", page_title="Political Party Tweet Classification", layout="wide")
@@ -350,6 +351,10 @@ if selected=="Live Demo":
             
         if st.button("Evaluation"):
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
+            cf_matrix = confusion_matrix(y_test, sgd_pred_res)
+            st.text(cf_matrix[0])
+
+
                   
     elif option == 'Logistic Regression':
         logreg = LogisticRegression(verbose=1, solver='liblinear',random_state=0, C=5, penalty='l2',max_iter=1000)
