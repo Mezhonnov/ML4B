@@ -221,6 +221,7 @@ if selected=="Process":
         
     with st.expander("Data Preparation"):
         st.text("Before Analyse to start we need to prepare our dataframe. To do this, we use several functions")
+        st.text("- remove retweet information")
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
                              'Result': ["Es waere gut..", "TOOOOOOORRRRR!!!", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
