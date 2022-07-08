@@ -276,23 +276,23 @@ if selected=="Process":
         In our project we used a special form of nb: Naive Bayes multinominal (due to our multiclassification problem). \
         Despite some other simple classifiers nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
         col1, col2, col3 = st.columns(3)
-        col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg", caption="Naive Bayes binomial")
         col2.markdown("<a style='text-align: center' href='https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html'>Click here for more information</a>", unsafe_allow_html=True)
+        col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg", caption="Naive Bayes binomial")
 
         ## SVM
         st.markdown("<h6 style='text-align: center'>Stochastic Gradient Descent</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm is rather a way of training a classifier than a specific family of machine learning models. \
         In our case this optimization technique an algorithm uses a SVM. Key points for our decision to use this was the efficiency.</p>", unsafe_allow_html=True) 
         col4, col5, col6 = st.columns(3)
-        col5.image("https://eloquentarduino.github.io/wp-content/uploads/2020/04/SGD.jpg")
         col5.markdown("<a style='text-align: center' href='https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html'>Click here for more information</a>", unsafe_allow_html=True)
+        col5.image("https://eloquentarduino.github.io/wp-content/uploads/2020/04/SGD.jpg")
         
         ## LR        
         st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
         col7, col8, col9 = st.columns(3)
-        col8.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         col8.markdown("<a style='text-align: center' href='https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html'>Click here for more information</a>", unsafe_allow_html=True)        
+        col8.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         
     with st.expander("Evaluation"):
         st.markdown("<p style='text-alighn: center'>Obviously training our KI wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knowledge through each step and iteration.\
