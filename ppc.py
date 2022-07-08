@@ -271,16 +271,16 @@ if selected=="Process":
         ## NB
         st.markdown("<h6 style='text-align: center'>Naive Bayes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
+        In our project we used a special form of nb: Naive Bayes multinominal (due to our multiclassification problem).
         Despite some other simple classifiers nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
         col1, col2, col3 = st.columns(3)
         col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg")
         ## SVM
-        st.markdown("<h6 style='text-align: center'>Support Vector Machine</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>This algorithm tries to place the training data in a multidimensional relation. In order to do this datapoint are represented as vectors. \
-        Building on that the algorithm tries to find the best possible separation of these datapoints based on their categorie (in our use case the political party). \
-        The effectiveness of this algorithm in complex use cases was the most important aspect for us which was the basis for our decision.</p>", unsafe_allow_html=True) 
+        st.markdown("<h6 style='text-align: center'>Stochastic Gradient Descent</h6>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center'>This algorithm is rather a way of training a classifier than a specific family of machine learning models. \
+        In our case this optimization technique an algorithm uses a SVM. Key points for our decision to use this was the efficiency.</p>", unsafe_allow_html=True) 
         col4, col5, col6 = st.columns(3)
-        col5.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_svc_001.png")
+        col5.image("https://en.wikipedia.org/wiki/Stochastic_gradient_descent#/media/File:Kernel_Machine.svg")
         ## LR        
         st.markdown("<h6 style='text-align: center'>Logistic Regression</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This algorithm uses different inputs to determine the output (in our use case political party). To achieve LR uses an equation.</p>", unsafe_allow_html=True)
@@ -288,7 +288,7 @@ if selected=="Process":
         col8.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         
     with st.expander("Evaluation"):
-        st.markdown("<p style='text-alighn: center'>Obviously training our KI wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knwoledge through each step and iteration.\
+        st.markdown("<p style='text-alighn: center'>Obviously training our KI wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knowledge through each step and iteration.\
         Especially the evaluation phase encouraged us to go over the preparation and modeling phase a lot.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>Key points</h6>", unsafe_allow_html=True)
         st.markdown("<ul style='text-align:center'><li>removing stopwords worsened our results</li><li>setting the amount of tweets per party to the same number didn't really improve the results</li><li>changing the training data and only focusing on particular members did improve our results a lot</li></ol>", unsafe_allow_html=True)
