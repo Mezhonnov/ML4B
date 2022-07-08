@@ -368,7 +368,7 @@ if selected=="Live Demo":
         sgd_pred_res = sgd.predict(X_test)
         
         if st.button("Predict"):
-            sgd_pred = sgd.predict([new_tweet])
+            sgd_pred = sgd.predict([[new_tweet]])
             st.write(sgd_pred)
             
         if st.button("Evaluation"):
