@@ -341,7 +341,7 @@ if selected=="Live Demo":
             st.table(test)
             
     
-    elif option == 'Linear Support Vector Machine':
+    elif option == 'Stochastic Gradient Descent':
         sgd = SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, random_state=12, max_iter=5, tol=None)
         sgd.fit(X_train, y_train)
         sgd_pred_res = sgd.predict(X_test)
