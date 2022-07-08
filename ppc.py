@@ -388,7 +388,7 @@ if selected=="Live Demo":
     if option =="Other":
         st.download_button(
          label="Download data as CSV",
-         data="test.csv",
+         data=df,
          file_name='large_df.csv',
          mime='text/csv',
         )
