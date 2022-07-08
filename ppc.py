@@ -22,7 +22,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import classification_report
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.linear_model import SGDClassifier
+from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 from sklearn.metrics import accuracy_score
@@ -362,23 +362,23 @@ if selected=="Live Demo":
             
     
     elif option == 'Linear Support Vector Machine':
-        sgd = SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, random_state=12, max_iter=5, tol=None)
+        svc = LinearSVC(loss='hinge', penalty='l2', random_state=12, max_iter=5, tol=None)
 
-        sgd.fit(X_train, y_train)
-        sgd_pred_res = sgd.predict(X_test)
+        svc.fit(X_train, y_train)
+        svc_pred_res = svc.predict(X_test)
         
         if st.button("Predict"):
-            sgd_pred = sgd.predict(new_tweet)
-            st.write(sgd_pred)
+            svc_pred = svc.predict(new_tweet)
+            st.write(svc_pred)
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
             st.markdow("<p>In the following report the most important figures are shown.</p>", unsafe_allow_html=True)
-            st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
+            st.text('Model Report:\n ' + classification_report(y_test, svc_pred_res, target_names=my_tags))
             
             st.markdown("<h6>Confusion Matrix</h6>", unsafe_allow_html=True)
             st.markdown("<p>To get a more detailed overview of the performance please take a look at this matrix.</p>", unsafe_allow_html=True)
-            cf_matrix = confusion_matrix(y_test, sgd_pred_res)
+            cf_matrix = confusion_matrix(y_test, svc_pred_res)
             data = pd.DataFrame(cf_matrix)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
@@ -391,8 +391,8 @@ if selected=="Live Demo":
         lg_pred_res = logreg.predict(X_test)
         
         if st.button("Predict"):
-            sgd_pred = logreg.predict([new_tweet])
-            st.write(sgd_pred)
+            lg_pred = logreg.predict([new_tweet])
+            st.write(lg_pred)
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
