@@ -22,7 +22,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import classification_report
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import LinearSVC
+from sklearn.linear_model import SGDClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 from sklearn.metrics import accuracy_score
@@ -30,14 +30,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
 import nltk
-
 st.set_page_config(page_icon="⭐", page_title="Political Party Tweet Classification", layout="wide")
-
 selected = option_menu(None, ["Home", "Dataset",  "Process", 'Live Demo', 'Other'], 
     icons=['house', 'file-earmark-text', "cpu", 'collection-play', "cpu"], 
     menu_icon="cast", default_index=0, orientation="horizontal",
 )
-
 ##define some functions
 p.set_options(p.OPT.URL, p.OPT.EMOJI, p.OPT.SMILEY, p.OPT.MENTION)
 def umlaut(text):
@@ -57,24 +54,20 @@ def remove_punkt(text):
     text = text.translate(str.maketrans('', '', string.punctuation)) 
     text.replace("#", "").replace("_", " ")
     return text
-
 def remove_numbers(text):
     return ''.join([i if not i.isdigit() else '' for i in text])
-
 def re_umlaut(text):
     text = text.replace('aeqwe', 'ä')
     text = text.replace('oeqwe', 'ö')
     text = text.replace('ueqwe', 'ü') 
     text = text.replace('ssqwe', 'ß')
     return text
-
 ## HOME
 if selected=="Home":
     st.markdown("<h1 style='text-align: center'>Political Party Classification</h1>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>Our Goal</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center'>The goal of our project is to classify tweets of german politicans by the political party of the author. However, we don't just want to research the politicians and categorize them manually, we want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>Our Team</h2>", unsafe_allow_html=True)
-
     #present your team
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -85,7 +78,6 @@ if selected=="Home":
         I was able to gain more experience for the coordination of collaborative software projects. The familiarisation with the topics of ML and AI was \
         particularly interesting, as I had never implemented my own project in these areas before. In my free time, I like to go to the gym or jogging.</p>", \
         unsafe_allow_html=True)
-
     with col2:
         st.image("image.jpeg")
         st.markdown("<h5 style='text-align: center'>Jana Adler </h5>", unsafe_allow_html=True)
@@ -105,7 +97,6 @@ if selected=="Home":
     st.markdown("<h2 style='text-align: center'>Our Vision</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center'>Changing the world with NLP! Through detecting political tendencies in tweets and political shifts in politician we want to make Twitter a saver place.</p>", unsafe_allow_html=True)
     
-
 ##Extract text of tweet and name of party 
 #     tweets = []
 #     party = ""
@@ -122,10 +113,8 @@ if selected=="Home":
 #                             tweet = tweet.strip()
 #                             if (len(tweet) > 5):
 #                                 tweets.append({'party': party, 'tweet': tweet})
-
 #     df = pd.DataFrame(tweets, columns = ['party', 'tweet'])
 #     df.to_csv('tweets.csv', columns = ['party', 'tweet'], index=False)
-
 #the same number of tweets per party
 # party = []
 # count = [0,0,0,0,0,0,0,0]
@@ -182,7 +171,6 @@ if selected=="Dataset":
     st.markdown("<p>Our dataset is a JSON file consisting of official tweets from members of the german parliament as of march 2021. Thus it includes tweets from CDU/CSU, SPD, Die Gruenen, Die Linken, AFD, etc. \n The main problem one will soon discover is...</p>", unsafe_allow_html=True)
     
     st.markdown("<h5>...our dataset is 8GB of JL-Data...</h5>", unsafe_allow_html=True)
-
     st.image("https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535", caption = "My Notebook with 4GB RAM")
     if st.checkbox("Show me example"):
         data = json.load(open('data.json'))
@@ -192,10 +180,8 @@ if selected=="Dataset":
 if selected=="Process":
     st.markdown("<h1 style='text-align: center'>CRISP-DM</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
-
     cola, colb, colc = st.columns(3)
     colb.image('crisp_dm.jpg')
-
     with st.expander("Business Understanding"):
         st.markdown("<p>Everybody knows Tweets. You can retweet a tweet or you can create a new one completly on your own.\
         There are almost no limits to what you can include in your tweet. You can use text, numbers and emojicons. \
@@ -223,7 +209,6 @@ if selected=="Process":
         st.write("- response")
         #st.markdown("<ul style='text-align:center'><li>http status</li>\
         #<li>account data (e.g. account name and party)</li><li>response</li></ol>", unsafe_allow_html=True)
-
         st.write("In summary we got information about the content of the tweet, as well as the authors name and party")
         
         if st.checkbox("Count of Tweets"):
@@ -242,10 +227,8 @@ if selected=="Process":
         #st.markdown("<ul style='text-align:center'><li>convert source data into csv</li>\
         #<li>reduce the amount of tweets</li><li>transform ä,ö,ü</li><li>remove unimportant information like 'time'</li><li>remove @-mentions</li>\
         #<li>remove punctuation</li><li>remove retweet information</li></ol>", unsafe_allow_html=True)
-
         st.markdown("<br><h6 style='text-align: center'>Differences</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>In the following table one can see the difference of a raw tweet and the tweet after preparation</p>", unsafe_allow_html=True) 
-
         d = {'Function': ["umlaut", "clean_tweet", "remove_rt", "remove_punkt", "re_umlaut"],
                              'Example' : ["Es wäre gut..", "@wue_reporter TOOOOOOORRRRR!!! #fcbayern","RT @aspd korrekt!", "Vorsicht!!! ich dachte, dass...", "Es waere gut.."],
                              'Result': ["Es waere gut..", "TOOOOOOORRRRR!!! fcbayern", "@aspd korrekt!","Vorsicht ich dachte dass", "Es wäre gut.."]}
@@ -267,7 +250,6 @@ if selected=="Process":
             plt.imshow(wordcloud, interpolation='bilinear')
             plt.axis("off")
             st.pyplot(fig)
-
         elif opt == "With Stopwords Function":
             stop_words = stopwords.words('german')    
             df['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))
@@ -284,7 +266,6 @@ if selected=="Process":
             
         st.text("After the data preparation we really did understand this meme:")
         st.image("meme.png", caption="Meme from Gitbook")
-
     with st.expander("Modeling"):
         st.markdown("<p style='text-align: center'>Part of this process section is to decide which algorithms to use. We decided to use the following three: Naive Bayes, Linear Support Vector Machine, Logistic Regression.</p>", unsafe_allow_html=True) 
         ## NB
@@ -317,7 +298,6 @@ if selected=="Process":
    
     with st.expander("Deployment"):
         st.markdown("<p style='text-alighn: center'>The deployment itself was quite smooth. However, we run some problems with the streamlit online version. The online version had problems with 'checking the health of the project' while the local version worked very well.</p>", unsafe_allow_html=True)  
-
 if selected=="Live Demo":  
     #stop_words = stopwords.words('german')    
     #df1['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))  
@@ -362,28 +342,26 @@ if selected=="Live Demo":
             
     
     elif option == 'Linear Support Vector Machine':
-        svc = LinearSVC(loss='hinge', penalty='l2', random_state=12, max_iter=5, tol=None)
-
-        svc.fit(X_train, y_train)
-        svc_pred_res = svc.predict(X_test)
+        sgd = SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, random_state=12, max_iter=5, tol=None)
+        sgd.fit(X_train, y_train)
+        sgd_pred_res = sgd.predict(X_test)
         
         if st.button("Predict"):
-            svc_pred = svc.predict(vectorizer.transform([new_tweet]))
-            st.write(svc_pred)
+            sgd_pred = sgd.predict(vectorizer.transform([new_tweet]))
+            st.write(sgd_pred)
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
             st.markdow("<p>In the following report the most important figures are shown.</p>", unsafe_allow_html=True)
-            st.text('Model Report:\n ' + classification_report(y_test, svc_pred_res, target_names=my_tags))
+            st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
             
             st.markdown("<h6>Confusion Matrix</h6>", unsafe_allow_html=True)
             st.markdown("<p>To get a more detailed overview of the performance please take a look at this matrix.</p>", unsafe_allow_html=True)
-            cf_matrix = confusion_matrix(y_test, svc_pred_res)
+            cf_matrix = confusion_matrix(y_test, sgd_pred_res)
             data = pd.DataFrame(cf_matrix)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
             st.table(test)
-
                   
     elif option == 'Logistic Regression':
         logreg = LogisticRegression(verbose=1, solver='liblinear',random_state=0, C=5, penalty='l2',max_iter=1000)
@@ -391,8 +369,8 @@ if selected=="Live Demo":
         lg_pred_res = logreg.predict(X_test)
         
         if st.button("Predict"):
-            lg_pred = logreg.predict(vectorizer.transform([new_tweet]))
-            st.write(lg_pred)
+            sgd_pred = logreg.predict(vectorizer.transform([new_tweet]))
+            st.write(sgd_pred)
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
@@ -405,7 +383,8 @@ if selected=="Live Demo":
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
             st.table(test)
-            
+
+    if option =="Other:
     if option =="Other":
         st.download_button(
          label="Download data as CSV",
