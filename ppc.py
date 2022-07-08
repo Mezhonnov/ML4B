@@ -385,10 +385,10 @@ if selected=="Live Demo":
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
             st.table(test)
 
-    if option =="Other":
+    if option == 'Other':
         st.download_button(
          label="Download data as CSV",
-         data=df,
+         data="test.csv",
          file_name='large_df.csv',
          mime='text/csv',
         )
