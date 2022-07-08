@@ -316,7 +316,7 @@ if selected=="Live Demo":
   
     option = st.selectbox('ML Model', 
         ["Naive Bayes",
-         "Linear Support Vector Machine", 
+         "Stochastic Gradient Descent", 
          "Logistic Regression"])
     
     if option == 'Naive Bayes':
