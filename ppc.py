@@ -386,6 +386,8 @@ if selected=="Live Demo":
             st.table(test)
 
     if option == 'Other':
+        st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
+
         st.download_button(
          label="Download data as CSV",
          data="test.csv",
