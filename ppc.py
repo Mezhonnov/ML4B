@@ -31,8 +31,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
 import nltk
 st.set_page_config(page_icon="⭐", page_title="Political Party Tweet Classification", layout="wide")
-selected = option_menu(None, ["Home", "Dataset",  "Process", 'Live Demo', 'Other'], 
-    icons=['house', 'file-earmark-text', "cpu", 'collection-play', "cpu"], 
+selected = option_menu(None, ["Home", "Dataset",  "Process", 'Live Demo'], 
+    icons=['house', 'file-earmark-text', "cpu", 'collection-play'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
 )
 ##define some functions
@@ -384,13 +384,3 @@ if selected=="Live Demo":
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='index', inplace=False)
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
             st.table(test)
-
-    elif option == 'Other':
-        st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
-
-        st.download_button(
-         label="Download data as CSV",
-         data="test.csv",
-         file_name='large_df.csv',
-         mime='text/csv',
-        )
