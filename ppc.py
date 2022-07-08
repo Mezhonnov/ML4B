@@ -96,7 +96,8 @@ if selected=="Home":
         
     st.markdown("<h2 style='text-align: center'>Our Vision</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center'>Changing the world with NLP! Through detecting political tendencies in tweets and political shifts in politician we want to make Twitter a saver place.</p>", unsafe_allow_html=True)
-    
+    col4, col5, col = st.columns(3)
+    col5.image("https://media-exp1.licdn.com/dms/image/C4D12AQHbKqGAiObN4g/article-cover_image-shrink_600_2000/0/1611422951583?e=1659571200&v=beta&t=EgKKeKRZvoaTekEc4gtCjlKpIk-jJ_C_zndpxAWBG7U")
 ##Extract text of tweet and name of party 
 #     tweets = []
 #     party = ""
