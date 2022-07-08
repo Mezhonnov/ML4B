@@ -369,8 +369,8 @@ if selected=="Live Demo":
         lg_pred_res = logreg.predict(X_test)
         
         if st.button("Predict"):
-            sgd_pred = logreg.predict(vectorizer.transform([new_tweet]))
-            st.write(sgd_pred)
+            lg_pred = logreg.predict(vectorizer.transform([new_tweet]))
+            st.write(lg_pred)
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
