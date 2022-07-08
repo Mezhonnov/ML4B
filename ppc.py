@@ -352,7 +352,7 @@ if selected=="Live Demo":
             
         if st.button("Evaluation"):
             st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
-            st.markdow("<p>In the following report the most important figures are shown.</p>", unsafe_allow_html=True)
+            st.markdown("<p>In the following report the most important figures are shown.</p>", unsafe_allow_html=True)
             st.text('Model Report:\n ' + classification_report(y_test, sgd_pred_res, target_names=my_tags))
             
             st.markdown("<h6>Confusion Matrix</h6>", unsafe_allow_html=True)
