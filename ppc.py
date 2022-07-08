@@ -385,7 +385,7 @@ if selected=="Live Demo":
             test = data.set_axis(['Bündnis 90/Die Grünen', 'SPD', 'AfD', 'Die Linke', 'FDP', 'CSU', 'CDU', 'Fraktionslos'], axis='columns', inplace=False)
             st.table(test)
 
-    if option == 'Other':
+    elif option == 'Other':
         st.markdown("<h6>Key figures</h6>", unsafe_allow_html=True)
 
         st.download_button(
