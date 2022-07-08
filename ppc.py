@@ -267,6 +267,7 @@ if selected=="Process":
             
         st.text("After the data preparation we really did understand this meme:")
         st.image("meme.png", caption="Meme from Gitbook")
+        
     with st.expander("Modeling"):
         st.markdown("<p style='text-align: center'>Part of this process section is to decide which algorithms to use. We decided to use the following three: Naive Bayes, Linear Support Vector Machine, Logistic Regression.</p>", unsafe_allow_html=True) 
         ## NB
@@ -274,6 +275,7 @@ if selected=="Process":
         st.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
         In our project we used a special form of nb: Naive Bayes multinominal (due to our multiclassification problem). \
         Despite some other simple classifiers nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
+        st.markdown("<a href='https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html'>Click here for more information</a>", unsafe_allow_html=True)
         col1, col2, col3 = st.columns(3)
         col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg", caption="Naive Bayes binomial")
         ## SVM
