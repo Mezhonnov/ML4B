@@ -368,7 +368,7 @@ if selected=="Live Demo":
         svc_pred_res = svc.predict(X_test)
         
         if st.button("Predict"):
-            svc_pred = svc.predict(new_tweet)
+            svc_pred = svc.predict(vectorizer.transform([new_tweet]))
             st.write(svc_pred)
             
         if st.button("Evaluation"):
@@ -391,7 +391,7 @@ if selected=="Live Demo":
         lg_pred_res = logreg.predict(X_test)
         
         if st.button("Predict"):
-            lg_pred = logreg.predict([new_tweet])
+            lg_pred = logreg.predict(vectorizer.transform([new_tweet]))
             st.write(lg_pred)
             
         if st.button("Evaluation"):
