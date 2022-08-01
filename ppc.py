@@ -66,10 +66,10 @@ def re_umlaut(text):
 if selected=="Home":
     st.markdown("<h1 style='text-align: center'>Political Party Classification</h1>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>My Goal</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center'>The goal of our project is to classify tweets of german politicans by the political party of the author. However, we don't just want to research the politicians and categorize them manually, we want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center'>The goal of my project is to classify tweets of german politicans by the political party of the author. However, i don't just want to research the politicians and categorize them manually, i want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>About me</h2>", unsafe_allow_html=True)
-    #present your team
-    col1 = st.columns(1)  
+
+    col1 = st.columns(1)
     with col1:
         st.image("image_ser.jpg")
         st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
@@ -149,9 +149,9 @@ df = pd.read_csv('result.csv')
 nltk.download('stopwords')
 if selected=="Dataset":
     st.markdown("<h1 style='text-align: center'>Twitter Dataset</h1>", unsafe_allow_html=True)
-    st.markdown("<p>Our dataset is a JSON file consisting of official tweets from members of the german parliament as of march 2021. Thus it includes tweets from CDU/CSU, SPD, Die Gruenen, Die Linken, AFD, etc. \n The main problem one will soon discover is...</p>", unsafe_allow_html=True)
+    st.markdown("<p>My dataset is a JSON file consisting of official tweets from members of the german parliament as of march 2021. Thus it includes tweets from CDU/CSU, SPD, Die Gruenen, Die Linken, AFD, etc. \n The main problem one will soon discover is...</p>", unsafe_allow_html=True)
     
-    st.markdown("<h5>...our dataset is 8GB of JL-Data...</h5>", unsafe_allow_html=True)
+    st.markdown("<h5>...my dataset is 8GB of JL-Data...</h5>", unsafe_allow_html=True)
     st.image("https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535", caption = "My Notebook with 4GB RAM")
     if st.checkbox("Show me example"):
         data = json.load(open('data.json'))
@@ -160,7 +160,7 @@ if selected=="Dataset":
 ## PROCESS
 if selected=="Process":
     st.markdown("<h1 style='text-align: center'>CRISP-DM</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center'>For our project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center'>For my project we used the procedure model CRISP-DM, which includes the following steps:</p>", unsafe_allow_html=True)
     cola, colb, colc = st.columns(3)
     colb.image('crisp_dm.jpg')
     with st.expander("Business Understanding"):
@@ -169,7 +169,7 @@ if selected=="Process":
         Despite the almost unlimited possibilites to write a tweet, one might use same patterns - like special emojis or syntax - over and over again. \
         Furthermore, members of some political parties tend to write more about special topics like 'football' and less about other topics like 'gardening'. \
         The interesting part is to find those exact patterns. Some are quite obvious and others are rather inconspicuous. \
-        However, we do not need to find those patterns on our own and read all of the 5000 tweets, we will use KI-algorithms for this!</p>", unsafe_allow_html=True)
+        However, i do not need to find those patterns on our own and read all of the 5000 tweets, i will use KI-algorithms for this!</p>", unsafe_allow_html=True)
         col3, col4 = st.columns(2)
         col3.markdown("<h6 style='text-align: center'>Olaf Scholz retweeting Tagesschau</h6>", unsafe_allow_html=True)
         col3.image('olaf_scholz_tweet.png')
@@ -180,9 +180,9 @@ if selected=="Process":
     with st.expander("Data Understanding"):
         st.markdown("<h6 style='text-align: center'>tar.gz-File</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>It is inevitable for a good data analysis to understand the structure of the source data. \
-        Therefore we needed to understand the structure of the given file. Within the compressed file we got where smaller seperate JSON-line files.</p>", unsafe_allow_html=True)
+        Therefore i needed to understand the structure of the given file. Within the compressed file i got where smaller seperate JSON-line files.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>JSON-File</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Furthermore we needed to understand how a JSON file works and which particular information was included</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Furthermore i needed to understand how a JSON file works and which particular information was included</p>", unsafe_allow_html=True) 
         st.write("Included important information:")
         st.write("- http status")
         st.write("- account name")
@@ -190,7 +190,7 @@ if selected=="Process":
         st.write("- response")
         #st.markdown("<ul style='text-align:center'><li>http status</li>\
         #<li>account data (e.g. account name and party)</li><li>response</li></ol>", unsafe_allow_html=True)
-        st.write("In summary we got information about the content of the tweet, as well as the authors name and party")
+        st.write("In summary i got information about the content of the tweet, as well as the authors name and party")
         
         if st.checkbox("Count of Tweets"):
             st.image("count.jpg", caption = "Count of Tweets per Party")
@@ -217,7 +217,7 @@ if selected=="Process":
         st.table(table)
         
         st.markdown("<br><h6 style='text-align: center'>Stop words</h6>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>Another thing we tried is to use the stop words function, which removes unnecessary german words from a text. Unnecessary as such are for example pronouns. \n \
+        st.markdown("<p style='text-align: center'>Another thing i tried is to use the stop words function, which removes unnecessary german words from a text. Unnecessary as such are for example pronouns. \n \
         In the following wordclouds one can see the most common words in our dataset including the stop words function as well as without the function.</p>", unsafe_allow_html=True) 
         opt = st.selectbox("Word Cloud", ("Please choose...","Without Stopwords Function","With Stopwords Function"))
         if opt == "Please choose...":
@@ -245,16 +245,16 @@ if selected=="Process":
         st.markdown("<h6 style='text-align: center'>Count of tweets</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>Please select the checkbox if interested in how many tweets per party are include in the dataframe after preparation</p>", unsafe_allow_html=True) 
             
-        st.text("After the data preparation we really did understand this meme:")
+        st.text("After the data preparation i really did understand this meme:")
         st.image("meme.png", caption="Meme from Gitbook")
         
     with st.expander("Modeling"):
-        st.markdown("<p style='text-align: center'>Part of this process section is to decide which algorithms to use. We decided to use the following three: Naive Bayes, Linear Support Vector Machine, Logistic Regression.</p>", unsafe_allow_html=True) 
+        st.markdown("<p style='text-align: center'>Part of this process section is to decide which algorithms to use. I decided to use the following three: Naive Bayes, Linear Support Vector Machine, Logistic Regression.</p>", unsafe_allow_html=True) 
         ## NB
         st.markdown("<h6 style='text-align: center'>Naive Bayes</h6>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center'>This supervised learning algorithm is based on applying the Bayes\' theorem with the assumption of conditional independence between every pair of features. \
         In our project we used a special form of nb: Naive Bayes multinominal (due to our multiclassification problem). \
-        Despite some other simple classifiers nb can work really well on reallife data, which is one of the main resonse we choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
+        Despite some other simple classifiers nb can work really well on reallife data, which is one of the main resonse i choose this one. Apart from that it takes an appropiate amount of time to train.</p>", unsafe_allow_html=True) 
         col1, col2, col3 = st.columns(3)
         col2.markdown("<a style='text-align: center' href='https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html'>Click here for more information</a>", unsafe_allow_html=True)
         col2.image("https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg", caption="Naive Bayes binomial")
@@ -275,16 +275,16 @@ if selected=="Process":
         col8.image("https://scikit-learn.org/stable/_images/sphx_glr_plot_logistic_multinomial_thumb.png")
         
     with st.expander("Evaluation"):
-        st.markdown("<p style='text-alighn: center'>Obviously training our KI wasn't a linear process. We needed to iterate over different tasks over and over again, because we gained more knowledge through each step and iteration.\
+        st.markdown("<p style='text-alighn: center'>Obviously training our KI wasn't a linear process. I needed to iterate over different tasks over and over again, because we gained more knowledge through each step and iteration.\
         Especially the evaluation phase encouraged us to go over the preparation and modeling phase a lot.</p>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>Key points</h6>", unsafe_allow_html=True)
         st.markdown("<ul style='text-align:center'><li>removing stopwords worsened our results</li><li>setting the amount of tweets per party to the same number didn't really improve the results</li><li>changing the training data and only focusing on particular members did improve our results a lot</li></ol>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center'>In summary we discovered a lot of setbacks and iterations with very bad accuracy. \
+        st.markdown("<p style='text-align: center'>In summary i discovered a lot of setbacks and iterations with very bad accuracy. \
         However, the change that really did the trick was to not reduce the source data random or based on the party, but rather based on particular politicians.</p>", unsafe_allow_html=True)
         st.text("Sidenote: current evaluation data are shown in the live demo")
    
     with st.expander("Deployment"):
-        st.markdown("<p style='text-alighn: center'>The deployment itself was quite smooth. However, we run some problems with the streamlit online version. The online version had problems with 'checking the health of the project' while the local version worked very well.</p>", unsafe_allow_html=True)  
+        st.markdown("<p style='text-alighn: center'>The deployment itself was quite smooth. However, i run some problems with the streamlit online version. The online version had problems with 'checking the health of the project' while the local version worked very well.</p>", unsafe_allow_html=True)  
 if selected=="Live Demo":  
     #stop_words = stopwords.words('german')    
     #df1['tweet'] = df['tweet'].map(lambda x : ' '.join([w for w in x.split() if w not in stop_words]))  
