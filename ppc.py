@@ -68,9 +68,7 @@ if selected=="Home":
     st.markdown("<h2 style='text-align: center'>My Goal</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center'>The goal of my project is to classify tweets of german politicans by the political party of the author. However, i don't just want to research the politicians and categorize them manually, i want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>About me</h2>", unsafe_allow_html=True)
-
-  
-    st.image("https://www.facebook.com/photo/?fbid=1559088087491677&set=a.105119086221925")
+    st.image("https://scontent-muc2-1.xx.fbcdn.net/v/t31.18172-8/20451827_1559088087491677_5562632512013699296_o.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tGN8W7JAj50AX-aYzJP&_nc_ht=scontent-muc2-1.xx&oh=00_AT-jaPGEyKBWeZIvPeg1mUn-5pWgqttKyRWkFXW26WcXPw&oe=630EE21E")
     st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
     st.markdown("<p>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
