@@ -65,28 +65,12 @@ def re_umlaut(text):
 ## HOME
 if selected=="Home":
     st.markdown("<h1 style='text-align: center'>Political Party Classification</h1>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center'>Our Goal</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center'>My Goal</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center'>The goal of our project is to classify tweets of german politicans by the political party of the author. However, we don't just want to research the politicians and categorize them manually, we want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center'>Our Team</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center'>About me</h2>", unsafe_allow_html=True)
     #present your team
-    col1, col2, col3 = st.columns(3)
+    col1 = st.columns(1)  
     with col1:
-        st.image("image_jan.jpeg")
-        st.markdown("<h5 style='text-align: center'>Jan Amend </h5>", unsafe_allow_html=True)
-        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.markdown("<p>Hello, I'm Jan and I'm currently a working student as a product manager. Through this project, \
-        I was able to gain more experience for the coordination of collaborative software projects. The familiarisation with the topics of ML and AI was \
-        particularly interesting, as I had never implemented my own project in these areas before. In my free time, I like to go to the gym or jogging.</p>", \
-        unsafe_allow_html=True)
-    with col2:
-        st.image("image.jpeg")
-        st.markdown("<h5 style='text-align: center'>Jana Adler </h5>", unsafe_allow_html=True)
-        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.markdown("<p>Hi, my name is Jana and I'm currently part of a dual studies programm at DATEV where im focusing on internet security. \
-        Since ML and AI is a pretty huge deal in web security I'm very invested in this topic. \
-        In my spare time I like to dance and go for a ride on my motorcycle.</p>", unsafe_allow_html=True)
-    
-    with col3:
         st.image("image_ser.jpg")
         st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
@@ -94,10 +78,6 @@ if selected=="Home":
         This Project helped me to use theoretical knowledge in Data Science into practical way. \
         In my free time i enjoy going to the gym and suffer there..</p>", unsafe_allow_html=True)
         
-    st.markdown("<h2 style='text-align: center'>Our Vision</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center'>Changing the world with NLP! Through detecting political tendencies in tweets and political shifts in politician we want to make Twitter a saver place.</p>", unsafe_allow_html=True)
-    col4, col5, col = st.columns(3)
-    col5.image("https://media-exp1.licdn.com/dms/image/C4D12AQHbKqGAiObN4g/article-cover_image-shrink_600_2000/0/1611422951583?e=1659571200&v=beta&t=EgKKeKRZvoaTekEc4gtCjlKpIk-jJ_C_zndpxAWBG7U")
 ##Extract text of tweet and name of party 
 #     tweets = []
 #     party = ""
@@ -164,7 +144,7 @@ if selected=="Home":
 #             i +=1  
 # df1 = pd.DataFrame(party, columns = ['party', 'tweet'])   
 # df1.to_csv('result.csv', columns = ['party', 'tweet'], index=False)
-##datei einlesen
+
 df = pd.read_csv('result.csv')
 nltk.download('stopwords')
 if selected=="Dataset":
