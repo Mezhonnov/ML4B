@@ -69,14 +69,13 @@ if selected=="Home":
     st.markdown("<p style='text-align: center'>The goal of my project is to classify tweets of german politicans by the political party of the author. However, i don't just want to research the politicians and categorize them manually, i want to use Machine Learning algorithms.</p>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center'>About me</h2>", unsafe_allow_html=True)
 
-    col1 = st.columns(1)
-    with col1:
-        st.image("https://www.facebook.com/photo/?fbid=1559088087491677&set=a.105119086221925")
-        st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
-        st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
-        st.markdown("<p>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
-        This Project helped me to use theoretical knowledge in Data Science into practical way. \
-        In my free time i enjoy going to the gym and suffer there..</p>", unsafe_allow_html=True)
+  
+    st.image("https://www.facebook.com/photo/?fbid=1559088087491677&set=a.105119086221925")
+    st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
+    st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
+    st.markdown("<p>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
+    This Project helped me to use theoretical knowledge in Data Science into practical way. \
+    In my free time i enjoy going to the gym and suffer there..</p>", unsafe_allow_html=True)
         
 ##Extract text of tweet and name of party 
 #     tweets = []
