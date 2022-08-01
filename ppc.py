@@ -71,7 +71,7 @@ if selected=="Home":
 
     col1 = st.columns(1)
     with col1:
-        st.image("image_ser.jpg")
+        st.image("https://www.facebook.com/photo/?fbid=1559088087491677&set=a.105119086221925")
         st.markdown("<h5 style='text-align: center'>Sergei Mezhonnov </h5>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: center'>4th semester Wirtschaftsinformatik</h6>", unsafe_allow_html=True)
         st.markdown("<p>Hi! I'm Sergei and I'm a working student at Siemens with focus on Database and IT-Solutions. \
